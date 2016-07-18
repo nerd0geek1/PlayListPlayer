@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		273326891D5033CE001462F8 /* PlayListPlayerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273326881D5033CE001462F8 /* PlayListPlayerType.swift */; };
 		73983FFC1D3D0D620001EA78 /* PlayListPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73983FF11D3D0D620001EA78 /* PlayListPlayer.framework */; };
 		739840011D3D0D620001EA78 /* PlayListPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739840001D3D0D620001EA78 /* PlayListPlayerTests.swift */; };
 /* End PBXBuildFile section */
@@ -22,6 +23,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		273326881D5033CE001462F8 /* PlayListPlayerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayListPlayerType.swift; sourceTree = "<group>"; };
 		73983FF11D3D0D620001EA78 /* PlayListPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlayListPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73983FF61D3D0D620001EA78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73983FFB1D3D0D620001EA78 /* PlayListPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayListPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +50,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		273326871D5033C4001462F8 /* player */ = {
+			isa = PBXGroup;
+			children = (
+				273326881D5033CE001462F8 /* PlayListPlayerType.swift */,
+			);
+			path = player;
+			sourceTree = "<group>";
+		};
 		73983FE71D3D0D620001EA78 = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +79,7 @@
 		73983FF31D3D0D620001EA78 /* PlayListPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				7398400B1D3D16390001EA78 /* classes */,
 				73983FF61D3D0D620001EA78 /* Info.plist */,
 			);
 			path = PlayListPlayer;
@@ -81,6 +92,14 @@
 				739840021D3D0D620001EA78 /* Info.plist */,
 			);
 			path = PlayListPlayerTests;
+			sourceTree = "<group>";
+		};
+		7398400B1D3D16390001EA78 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				273326871D5033C4001462F8 /* player */,
+			);
+			path = classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				273326891D5033CE001462F8 /* PlayListPlayerType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
