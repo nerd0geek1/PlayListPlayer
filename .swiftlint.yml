@@ -1,0 +1,4 @@
+excluded:
+  - Carthage
+  - PlayListPlayerTests
+line_length: 150

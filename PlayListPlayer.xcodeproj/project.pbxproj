@@ -7,9 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		73983FF51D3D0D620001EA78 /* PlayListPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 73983FF41D3D0D620001EA78 /* PlayListPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		273326891D5033CE001462F8 /* PlayListPlayerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273326881D5033CE001462F8 /* PlayListPlayerType.swift */; };
+		2733268C1D503542001462F8 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2733268A1D503542001462F8 /* Nimble.framework */; };
+		2733268D1D503542001462F8 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2733268B1D503542001462F8 /* Quick.framework */; };
+		2733268F1D50354E001462F8 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2733268A1D503542001462F8 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		273326901D50354E001462F8 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2733268B1D503542001462F8 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		273326951D503643001462F8 /* PlayListPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273326941D503643001462F8 /* PlayListPlayer.swift */; };
+		273326971D5038A1001462F8 /* PlayListPlayerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273326961D5038A1001462F8 /* PlayListPlayerSpec.swift */; };
+		2733269C1D5044F1001462F8 /* sample_audio1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 273326991D5044F1001462F8 /* sample_audio1.mp3 */; };
+		2733269D1D5044F1001462F8 /* sample_audio2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2733269A1D5044F1001462F8 /* sample_audio2.mp3 */; };
+		2733269E1D5044F1001462F8 /* sample_movie.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2733269B1D5044F1001462F8 /* sample_movie.mp4 */; };
+		273326A01D50450A001462F8 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2733269F1D50450A001462F8 /* FileHelper.swift */; };
+		273326A11D5046D4001462F8 /* PlayListPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273326941D503643001462F8 /* PlayListPlayer.swift */; };
+		273326A21D5046DA001462F8 /* PlayListPlayerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273326881D5033CE001462F8 /* PlayListPlayerType.swift */; };
 		73983FFC1D3D0D620001EA78 /* PlayListPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73983FF11D3D0D620001EA78 /* PlayListPlayer.framework */; };
-		739840011D3D0D620001EA78 /* PlayListPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739840001D3D0D620001EA78 /* PlayListPlayerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,12 +33,33 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2733268E1D503545001462F8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2733268F1D50354E001462F8 /* Nimble.framework in CopyFiles */,
+				273326901D50354E001462F8 /* Quick.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		273326881D5033CE001462F8 /* PlayListPlayerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayListPlayerType.swift; sourceTree = "<group>"; };
+		2733268A1D503542001462F8 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		2733268B1D503542001462F8 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		273326941D503643001462F8 /* PlayListPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayListPlayer.swift; sourceTree = "<group>"; };
+		273326961D5038A1001462F8 /* PlayListPlayerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayListPlayerSpec.swift; sourceTree = "<group>"; };
+		273326991D5044F1001462F8 /* sample_audio1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample_audio1.mp3; sourceTree = SOURCE_ROOT; };
+		2733269A1D5044F1001462F8 /* sample_audio2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample_audio2.mp3; sourceTree = SOURCE_ROOT; };
+		2733269B1D5044F1001462F8 /* sample_movie.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample_movie.mp4; sourceTree = SOURCE_ROOT; };
+		2733269F1D50450A001462F8 /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		73983FF11D3D0D620001EA78 /* PlayListPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlayListPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		73983FF41D3D0D620001EA78 /* PlayListPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayListPlayer.h; sourceTree = "<group>"; };
 		73983FF61D3D0D620001EA78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73983FFB1D3D0D620001EA78 /* PlayListPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayListPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		739840001D3D0D620001EA78 /* PlayListPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListPlayerTests.swift; sourceTree = "<group>"; };
 		739840021D3D0D620001EA78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -44,17 +76,64 @@
 			buildActionMask = 2147483647;
 			files = (
 				73983FFC1D3D0D620001EA78 /* PlayListPlayer.framework in Frameworks */,
+				2733268C1D503542001462F8 /* Nimble.framework in Frameworks */,
+				2733268D1D503542001462F8 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		273326871D5033C4001462F8 /* player */ = {
+			isa = PBXGroup;
+			children = (
+				273326881D5033CE001462F8 /* PlayListPlayerType.swift */,
+				273326941D503643001462F8 /* PlayListPlayer.swift */,
+			);
+			path = player;
+			sourceTree = "<group>";
+		};
+		273326911D503559001462F8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2733268A1D503542001462F8 /* Nimble.framework */,
+				2733268B1D503542001462F8 /* Quick.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		273326921D50362E001462F8 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				273326931D503634001462F8 /* player */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		273326931D503634001462F8 /* player */ = {
+			isa = PBXGroup;
+			children = (
+				273326961D5038A1001462F8 /* PlayListPlayerSpec.swift */,
+			);
+			path = player;
+			sourceTree = "<group>";
+		};
+		273326981D5043D9001462F8 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				273326991D5044F1001462F8 /* sample_audio1.mp3 */,
+				2733269A1D5044F1001462F8 /* sample_audio2.mp3 */,
+				2733269B1D5044F1001462F8 /* sample_movie.mp4 */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
 		73983FE71D3D0D620001EA78 = {
 			isa = PBXGroup;
 			children = (
 				73983FF31D3D0D620001EA78 /* PlayListPlayer */,
 				73983FFF1D3D0D620001EA78 /* PlayListPlayerTests */,
+				273326911D503559001462F8 /* Frameworks */,
 				73983FF21D3D0D620001EA78 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,7 +150,7 @@
 		73983FF31D3D0D620001EA78 /* PlayListPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				73983FF41D3D0D620001EA78 /* PlayListPlayer.h */,
+				7398400B1D3D16390001EA78 /* classes */,
 				73983FF61D3D0D620001EA78 /* Info.plist */,
 			);
 			path = PlayListPlayer;
@@ -80,10 +159,20 @@
 		73983FFF1D3D0D620001EA78 /* PlayListPlayerTests */ = {
 			isa = PBXGroup;
 			children = (
-				739840001D3D0D620001EA78 /* PlayListPlayerTests.swift */,
+				2733269F1D50450A001462F8 /* FileHelper.swift */,
+				273326921D50362E001462F8 /* classes */,
+				273326981D5043D9001462F8 /* resources */,
 				739840021D3D0D620001EA78 /* Info.plist */,
 			);
 			path = PlayListPlayerTests;
+			sourceTree = "<group>";
+		};
+		7398400B1D3D16390001EA78 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				273326871D5033C4001462F8 /* player */,
+			);
+			path = classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,7 +182,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73983FF51D3D0D620001EA78 /* PlayListPlayer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +196,7 @@
 				73983FED1D3D0D620001EA78 /* Frameworks */,
 				73983FEE1D3D0D620001EA78 /* Headers */,
 				73983FEF1D3D0D620001EA78 /* Resources */,
+				7398400E1D3D168B0001EA78 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -125,6 +214,7 @@
 				73983FF71D3D0D620001EA78 /* Sources */,
 				73983FF81D3D0D620001EA78 /* Frameworks */,
 				73983FF91D3D0D620001EA78 /* Resources */,
+				2733268E1D503545001462F8 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -184,16 +274,38 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2733269E1D5044F1001462F8 /* sample_movie.mp4 in Resources */,
+				2733269D1D5044F1001462F8 /* sample_audio2.mp3 in Resources */,
+				2733269C1D5044F1001462F8 /* sample_audio1.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7398400E1D3D168B0001EA78 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		73983FEC1D3D0D620001EA78 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				273326951D503643001462F8 /* PlayListPlayer.swift in Sources */,
+				273326891D5033CE001462F8 /* PlayListPlayerType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +313,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				739840011D3D0D620001EA78 /* PlayListPlayerTests.swift in Sources */,
+				273326A21D5046DA001462F8 /* PlayListPlayerType.swift in Sources */,
+				273326971D5038A1001462F8 /* PlayListPlayerSpec.swift in Sources */,
+				273326A11D5046D4001462F8 /* PlayListPlayer.swift in Sources */,
+				273326A01D50450A001462F8 /* FileHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,7 +369,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -297,7 +412,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -310,6 +425,7 @@
 		739840061D3D0D620001EA78 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -320,12 +436,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nerd0geek1.PlayListPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		739840071D3D0D620001EA78 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -342,16 +460,27 @@
 		739840091D3D0D620001EA78 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PlayListPlayerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nerd0geek1.PlayListPlayerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		7398400A1D3D0D620001EA78 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PlayListPlayerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nerd0geek1.PlayListPlayerTests;
@@ -378,6 +507,7 @@
 				739840071D3D0D620001EA78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		739840081D3D0D620001EA78 /* Build configuration list for PBXNativeTarget "PlayListPlayerTests" */ = {
 			isa = XCConfigurationList;
@@ -386,6 +516,7 @@
 				7398400A1D3D0D620001EA78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
