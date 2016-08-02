@@ -12,8 +12,15 @@
 		2733268D1D503542001462F8 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2733268B1D503542001462F8 /* Quick.framework */; };
 		2733268F1D50354E001462F8 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2733268A1D503542001462F8 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		273326901D50354E001462F8 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2733268B1D503542001462F8 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		273326951D503643001462F8 /* PlayListPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273326941D503643001462F8 /* PlayListPlayer.swift */; };
+		273326971D5038A1001462F8 /* PlayListPlayerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273326961D5038A1001462F8 /* PlayListPlayerSpec.swift */; };
+		2733269C1D5044F1001462F8 /* sample_audio1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 273326991D5044F1001462F8 /* sample_audio1.mp3 */; };
+		2733269D1D5044F1001462F8 /* sample_audio2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2733269A1D5044F1001462F8 /* sample_audio2.mp3 */; };
+		2733269E1D5044F1001462F8 /* sample_movie.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2733269B1D5044F1001462F8 /* sample_movie.mp4 */; };
+		273326A01D50450A001462F8 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2733269F1D50450A001462F8 /* FileHelper.swift */; };
+		273326A11D5046D4001462F8 /* PlayListPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273326941D503643001462F8 /* PlayListPlayer.swift */; };
+		273326A21D5046DA001462F8 /* PlayListPlayerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273326881D5033CE001462F8 /* PlayListPlayerType.swift */; };
 		73983FFC1D3D0D620001EA78 /* PlayListPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73983FF11D3D0D620001EA78 /* PlayListPlayer.framework */; };
-		739840011D3D0D620001EA78 /* PlayListPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739840001D3D0D620001EA78 /* PlayListPlayerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,10 +51,15 @@
 		273326881D5033CE001462F8 /* PlayListPlayerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayListPlayerType.swift; sourceTree = "<group>"; };
 		2733268A1D503542001462F8 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		2733268B1D503542001462F8 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		273326941D503643001462F8 /* PlayListPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayListPlayer.swift; sourceTree = "<group>"; };
+		273326961D5038A1001462F8 /* PlayListPlayerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayListPlayerSpec.swift; sourceTree = "<group>"; };
+		273326991D5044F1001462F8 /* sample_audio1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample_audio1.mp3; sourceTree = SOURCE_ROOT; };
+		2733269A1D5044F1001462F8 /* sample_audio2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample_audio2.mp3; sourceTree = SOURCE_ROOT; };
+		2733269B1D5044F1001462F8 /* sample_movie.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample_movie.mp4; sourceTree = SOURCE_ROOT; };
+		2733269F1D50450A001462F8 /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		73983FF11D3D0D620001EA78 /* PlayListPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlayListPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73983FF61D3D0D620001EA78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73983FFB1D3D0D620001EA78 /* PlayListPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayListPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		739840001D3D0D620001EA78 /* PlayListPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListPlayerTests.swift; sourceTree = "<group>"; };
 		739840021D3D0D620001EA78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				273326881D5033CE001462F8 /* PlayListPlayerType.swift */,
+				273326941D503643001462F8 /* PlayListPlayer.swift */,
 			);
 			path = player;
 			sourceTree = "<group>";
@@ -87,6 +100,32 @@
 				2733268B1D503542001462F8 /* Quick.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		273326921D50362E001462F8 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				273326931D503634001462F8 /* player */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		273326931D503634001462F8 /* player */ = {
+			isa = PBXGroup;
+			children = (
+				273326961D5038A1001462F8 /* PlayListPlayerSpec.swift */,
+			);
+			path = player;
+			sourceTree = "<group>";
+		};
+		273326981D5043D9001462F8 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				273326991D5044F1001462F8 /* sample_audio1.mp3 */,
+				2733269A1D5044F1001462F8 /* sample_audio2.mp3 */,
+				2733269B1D5044F1001462F8 /* sample_movie.mp4 */,
+			);
+			name = resources;
 			sourceTree = "<group>";
 		};
 		73983FE71D3D0D620001EA78 = {
@@ -120,7 +159,9 @@
 		73983FFF1D3D0D620001EA78 /* PlayListPlayerTests */ = {
 			isa = PBXGroup;
 			children = (
-				739840001D3D0D620001EA78 /* PlayListPlayerTests.swift */,
+				2733269F1D50450A001462F8 /* FileHelper.swift */,
+				273326921D50362E001462F8 /* classes */,
+				273326981D5043D9001462F8 /* resources */,
 				739840021D3D0D620001EA78 /* Info.plist */,
 			);
 			path = PlayListPlayerTests;
@@ -233,6 +274,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2733269E1D5044F1001462F8 /* sample_movie.mp4 in Resources */,
+				2733269D1D5044F1001462F8 /* sample_audio2.mp3 in Resources */,
+				2733269C1D5044F1001462F8 /* sample_audio1.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				273326951D503643001462F8 /* PlayListPlayer.swift in Sources */,
 				273326891D5033CE001462F8 /* PlayListPlayerType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,7 +313,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				739840011D3D0D620001EA78 /* PlayListPlayerTests.swift in Sources */,
+				273326A21D5046DA001462F8 /* PlayListPlayerType.swift in Sources */,
+				273326971D5038A1001462F8 /* PlayListPlayerSpec.swift in Sources */,
+				273326A11D5046D4001462F8 /* PlayListPlayer.swift in Sources */,
+				273326A01D50450A001462F8 /* FileHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +460,7 @@
 		739840091D3D0D620001EA78 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -420,12 +469,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nerd0geek1.PlayListPlayerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		7398400A1D3D0D620001EA78 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
