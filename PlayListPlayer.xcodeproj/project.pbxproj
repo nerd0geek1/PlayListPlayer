@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		273326891D5033CE001462F8 /* PlayListPlayerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273326881D5033CE001462F8 /* PlayListPlayerType.swift */; };
+		2733268C1D503542001462F8 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2733268A1D503542001462F8 /* Nimble.framework */; };
+		2733268D1D503542001462F8 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2733268B1D503542001462F8 /* Quick.framework */; };
+		2733268F1D50354E001462F8 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2733268A1D503542001462F8 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		273326901D50354E001462F8 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2733268B1D503542001462F8 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		73983FFC1D3D0D620001EA78 /* PlayListPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73983FF11D3D0D620001EA78 /* PlayListPlayer.framework */; };
 		739840011D3D0D620001EA78 /* PlayListPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739840001D3D0D620001EA78 /* PlayListPlayerTests.swift */; };
 /* End PBXBuildFile section */
@@ -22,8 +26,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2733268E1D503545001462F8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2733268F1D50354E001462F8 /* Nimble.framework in CopyFiles */,
+				273326901D50354E001462F8 /* Quick.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		273326881D5033CE001462F8 /* PlayListPlayerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayListPlayerType.swift; sourceTree = "<group>"; };
+		2733268A1D503542001462F8 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		2733268B1D503542001462F8 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		73983FF11D3D0D620001EA78 /* PlayListPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlayListPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73983FF61D3D0D620001EA78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73983FFB1D3D0D620001EA78 /* PlayListPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayListPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +64,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				73983FFC1D3D0D620001EA78 /* PlayListPlayer.framework in Frameworks */,
+				2733268C1D503542001462F8 /* Nimble.framework in Frameworks */,
+				2733268D1D503542001462F8 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,11 +80,21 @@
 			path = player;
 			sourceTree = "<group>";
 		};
+		273326911D503559001462F8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2733268A1D503542001462F8 /* Nimble.framework */,
+				2733268B1D503542001462F8 /* Quick.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		73983FE71D3D0D620001EA78 = {
 			isa = PBXGroup;
 			children = (
 				73983FF31D3D0D620001EA78 /* PlayListPlayer */,
 				73983FFF1D3D0D620001EA78 /* PlayListPlayerTests */,
+				273326911D503559001462F8 /* Frameworks */,
 				73983FF21D3D0D620001EA78 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -141,6 +173,7 @@
 				73983FF71D3D0D620001EA78 /* Sources */,
 				73983FF81D3D0D620001EA78 /* Frameworks */,
 				73983FF91D3D0D620001EA78 /* Resources */,
+				2733268E1D503545001462F8 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -379,6 +412,10 @@
 		739840091D3D0D620001EA78 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PlayListPlayerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nerd0geek1.PlayListPlayerTests;
@@ -389,6 +426,10 @@
 		7398400A1D3D0D620001EA78 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PlayListPlayerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nerd0geek1.PlayListPlayerTests;
