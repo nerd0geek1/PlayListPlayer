@@ -22,9 +22,9 @@ movieRenderingView.setPlayer(player)
 PlayListPlayer.sharedInstance.play()
 ```
 
-`PlayListPlayerSample` is sample project which includes above files, so please refer it if needed.
-
-<img src="https://raw.githubusercontent.com/nerd0geek1/PlayListPlayer/master/images/sample_project.png">
+`PlayListPlayerSample` is sample project which includes above files, so please refer it if needed.  
+You can confirm screen like below with sample project.  
+<img src="https://raw.githubusercontent.com/nerd0geek1/PlayListPlayer/master/images/sample_project.png" width="320px">
 
 ## Requirements
 - iOS 9.0+
