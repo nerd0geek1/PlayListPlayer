@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		7312F3911D517C4100F29A6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7312F3901D517C4100F29A6C /* AppDelegate.swift */; };
 		7312F3931D517C4800F29A6C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7312F3921D517C4800F29A6C /* ViewController.swift */; };
+		7312F3991D517E5900F29A6C /* PlayListPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7312F3981D517E5900F29A6C /* PlayListPlayer.framework */; };
+		7312F39F1D517EB900F29A6C /* sample_audio1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7312F39C1D517EB900F29A6C /* sample_audio1.mp3 */; };
+		7312F3A01D517EB900F29A6C /* sample_audio2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7312F39D1D517EB900F29A6C /* sample_audio2.mp3 */; };
+		7312F3A11D517EB900F29A6C /* sample_movie.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7312F39E1D517EB900F29A6C /* sample_movie.mp4 */; };
 		731C8A1F1D50A8B8009EB2AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 731C8A1D1D50A8B8009EB2AB /* Main.storyboard */; };
 		731C8A211D50A8B8009EB2AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 731C8A201D50A8B8009EB2AB /* Assets.xcassets */; };
 		731C8A241D50A8B8009EB2AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 731C8A221D50A8B8009EB2AB /* LaunchScreen.storyboard */; };
@@ -17,6 +21,10 @@
 /* Begin PBXFileReference section */
 		7312F3901D517C4100F29A6C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7312F3921D517C4800F29A6C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7312F3981D517E5900F29A6C /* PlayListPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PlayListPlayer.framework; sourceTree = "<group>"; };
+		7312F39C1D517EB900F29A6C /* sample_audio1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = sample_audio1.mp3; path = ../../sample_audio1.mp3; sourceTree = "<group>"; };
+		7312F39D1D517EB900F29A6C /* sample_audio2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = sample_audio2.mp3; path = ../../sample_audio2.mp3; sourceTree = "<group>"; };
+		7312F39E1D517EB900F29A6C /* sample_movie.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = sample_movie.mp4; path = ../../sample_movie.mp4; sourceTree = "<group>"; };
 		731C8A161D50A8B8009EB2AB /* PlayListPlayerSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayListPlayerSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		731C8A1E1D50A8B8009EB2AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		731C8A201D50A8B8009EB2AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -29,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7312F3991D517E5900F29A6C /* PlayListPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,10 +69,37 @@
 			path = viewcontroller;
 			sourceTree = "<group>";
 		};
+		7312F3961D517CCF00F29A6C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7312F3981D517E5900F29A6C /* PlayListPlayer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7312F39A1D517E9900F29A6C /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				7312F39B1D517EA500F29A6C /* audio */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
+		7312F39B1D517EA500F29A6C /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				7312F39C1D517EB900F29A6C /* sample_audio1.mp3 */,
+				7312F39D1D517EB900F29A6C /* sample_audio2.mp3 */,
+				7312F39E1D517EB900F29A6C /* sample_movie.mp4 */,
+			);
+			name = audio;
+			sourceTree = "<group>";
+		};
 		731C8A0D1D50A8B8009EB2AB = {
 			isa = PBXGroup;
 			children = (
 				731C8A181D50A8B8009EB2AB /* PlayListPlayerSample */,
+				7312F3961D517CCF00F29A6C /* Frameworks */,
 				731C8A171D50A8B8009EB2AB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -80,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				7312F38D1D517C1B00F29A6C /* classes */,
+				7312F39A1D517E9900F29A6C /* resources */,
 				731C8A1D1D50A8B8009EB2AB /* Main.storyboard */,
 				731C8A201D50A8B8009EB2AB /* Assets.xcassets */,
 				731C8A221D50A8B8009EB2AB /* LaunchScreen.storyboard */,
@@ -98,6 +135,7 @@
 				731C8A121D50A8B8009EB2AB /* Sources */,
 				731C8A131D50A8B8009EB2AB /* Frameworks */,
 				731C8A141D50A8B8009EB2AB /* Resources */,
+				7312F3971D517CE000F29A6C /* Copy Carthage Resources */,
 			);
 			buildRules = (
 			);
@@ -146,13 +184,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7312F3A11D517EB900F29A6C /* sample_movie.mp4 in Resources */,
 				731C8A241D50A8B8009EB2AB /* LaunchScreen.storyboard in Resources */,
 				731C8A211D50A8B8009EB2AB /* Assets.xcassets in Resources */,
 				731C8A1F1D50A8B8009EB2AB /* Main.storyboard in Resources */,
+				7312F39F1D517EB900F29A6C /* sample_audio1.mp3 in Resources */,
+				7312F3A01D517EB900F29A6C /* sample_audio2.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7312F3971D517CE000F29A6C /* Copy Carthage Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/PlayListPlayer.framework",
+			);
+			name = "Copy Carthage Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		731C8A121D50A8B8009EB2AB /* Sources */ = {
@@ -274,6 +333,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PlayListPlayerSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nerd0geek1.PlayListPlayerSample;
@@ -287,6 +350,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PlayListPlayerSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nerd0geek1.PlayListPlayerSample;
