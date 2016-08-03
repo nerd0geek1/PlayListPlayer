@@ -31,3 +31,9 @@ public protocol PlayListPlayerType {
     func endRewinding()
     func jumpToPreviousTrack()
 }
+
+public enum PlayMode: Int {
+    case RepeatPlayList
+    case RepeatItem
+    case NoRepeat
+}
