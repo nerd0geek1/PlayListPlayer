@@ -1,7 +1,7 @@
 # PlayListPlayer
 <a href="https://travis-ci.org/nerd0geek1/PlayListPlayer"><img src="https://img.shields.io/travis/nerd0geek1/PlayListPlayer/master.svg"></a>
 <a href="https://github.com/Carthage/Carthage/"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"></a>
-<a href="http://cocoadocs.org/docsets/PlayListPlayer"><img src="https://img.shields.io/cocoapods/v/PlayListPlayer.svg?style=flat">
+<a href="http://cocoadocs.org/docsets/PlayListPlayer"><img src="https://img.shields.io/cocoapods/v/PlayListPlayer.svg?style=flat"></a>
 
 PlayListPlayer is `AVPlayer` wrapper module to simplify playing audio/movie file using `AVPlayer` and `AVPlayerLayer`.
 
