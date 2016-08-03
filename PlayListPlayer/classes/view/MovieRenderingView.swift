@@ -20,7 +20,7 @@ public class MovieRenderingView: UIView {
 
     //MARK: - public
 
-    func setPlayer(player: PlayListPlayer) {
+    public func setPlayer(player: PlayListPlayer) {
         layer.setPlayer(player)
     }
 }
