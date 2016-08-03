@@ -1,5 +1,71 @@
 # PlayListPlayer
-Audio/Movie PlayList Player module written in Swift
+<a href="https://travis-ci.org/nerd0geek1/PlayListPlayer"><img src="https://img.shields.io/travis/nerd0geek1/PlayListPlayer/master.svg"></a>
+<a href="https://github.com/Carthage/Carthage/"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"></a>
+<a href="http://cocoadocs.org/docsets/PlayListPlayer"><img src="https://img.shields.io/cocoapods/v/PlayListPlayer.svg?style=flat">
+
+PlayListPlayer is `AVPlayer` wrapper module to simplify playing audio/movie file using `AVPlayer` and `AVPlayerLayer`.
+
+## How to use
+```Swift
+//assign audio movie files to Player
+let url1: NSURL = NSURL(string: "...")!
+let url2: NSURL = NSURL(string: "...")!
+let url3: NSURL = NSURL(string: "...")!
+PlayListPlayer.sharedInstance.setPlayList([url1, url2, url3])
+
+//setup MovieRenderingView(If you want to play video file)
+let movieRenderingView: MovieRenderingView = MovieRenderingView()
+view.addSubView(movieRenderingView)
+movieRenderingView.setPlayer(player)
+
+//start playing
+PlayListPlayer.sharedInstance.play()
+```
+
+`PlayListPlayerSample` is sample project which includes above files, so please refer it if needed.
+
+<img src="https://raw.githubusercontent.com/nerd0geek1/PlayListPlayer/master/images/sample_project.png">
+
+## Requirements
+- iOS 9.0+
+- Xcode 7.3 or above
+
+PlayListPlayer is now supporting Swift2.2.
+
+## Installation
+
+### CocoaPods
+To integrate PlayListPlayer into your Xcode project using CocoaPods, specify it in your Podfile:
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '9.0'
+
+project 'YOUR_PROJECT_NAME'
+
+target 'YOUR_TARGET_NAME' do
+  use_frameworks!
+
+  pod 'PlayListPlayer'
+end
+```
+
+Then, run the following command:
+
+``` bash
+$ pod install
+```
+
+
+### Carthage
+To integrate PlayListPlayer into your Xcode project using Carthage, specify it in your Cartfile:
+```
+github "nerd0geek1/PlayListPlayer"
+```
+
+Then, run the following command:
+```
+$ carthage update
+```
 
 ## Audio/Movie file License
 Sample Audio files in this project are provided by Bensound:  
@@ -11,3 +77,6 @@ https://videos.pexels.com/
 For sample audio/movie files, please obey these sites license.  
 [Bensound Licensing](http://www.bensound.com/licensing)  
 [PEXELS VIDEOS Video License](https://videos.pexels.com/video-license)
+
+## License
+This software is Open Source under the MIT license, see LICENSE for details.
