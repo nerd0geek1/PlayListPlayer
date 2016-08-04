@@ -10,15 +10,23 @@ import Foundation
 import AVFoundation
 
 public class PlayListPlayer: PlayListPlayerType {
+
+    //MARK: - public properties
+
     public static let sharedInstance: PlayListPlayer = PlayListPlayer()
 
     public var didFinishPlayingTrack:(() -> Void)?
     public var didFinishPlayingPlayList:(() -> Void)?
 
+    public var playMode: PlayMode = .RepeatPlayList
+
+    //MARK: - private properties
+
     private let player: AVPlayer = AVPlayer()
 
     private(set) var playListURLs: [NSURL] = []
     private(set) var currentIndex: Int     = 0
+
 
     //MARK: - update PlayListPlayer properties
 
@@ -84,16 +92,21 @@ public class PlayListPlayer: PlayListPlayerType {
     }
 
     public func skipToNextTrack() {
-        let nextIndex: Int = currentIndex + 1
+        let isLastTrack: Bool = currentIndex == lastTrackIndex()
+        let nextIndex: Int    = isLastTrack ? 0 : currentIndex + 1
 
-        if isValidIndex(nextIndex) {
+        switch playMode {
+        case .RepeatPlayList:
             setCurrentIndex(nextIndex)
-            player.play()
-            return
+            play()
+        case .RepeatItem:
+            seekToTrackBeginning()
+        case .NoRepeat:
+            setCurrentIndex(nextIndex)
+            if isLastTrack {
+                pause()
+            }
         }
-
-        player.pause()
-        seekToTrackBeginning()
     }
 
     public func beginRewinding() {
@@ -105,24 +118,24 @@ public class PlayListPlayer: PlayListPlayerType {
     }
 
     public func jumpToPreviousTrack() {
-        let previousIndex: Int = currentIndex - 1
+        let isFirstTrack: Bool = currentIndex == 0
+        let previousIndex: Int = isFirstTrack ? 0 : currentIndex - 1
 
-        if isValidIndex(previousIndex) {
-            setCurrentIndex(previousIndex)
-            play()
-            return
+        switch playMode {
+        case .RepeatPlayList, .NoRepeat:
+            if isFirstTrack {
+                seekToTrackBeginning()
+            } else {
+                setCurrentIndex(previousIndex)
+            }
+        case .RepeatItem:
+            seekToTrackBeginning()
         }
-
-        seekToTrackBeginning()
-        play()
     }
 
     //MARK: - private
 
     private func setupPlayerItem() {
-        if !hasPlayList() {
-            return
-        }
         if !isValidIndex(currentIndex) {
             return
         }
@@ -143,7 +156,11 @@ public class PlayListPlayer: PlayListPlayerType {
     }
 
     private func isValidIndex(index: Int) -> Bool {
-        return 0 <= index && index <= playListURLs.count - 1
+        return hasPlayList() && 0 <= index && index <= lastTrackIndex()
+    }
+
+    private func lastTrackIndex() -> Int {
+        return playListURLs.count == 0 ? 0 : playListURLs.count - 1
     }
 
     private func resetPlayerRate() {
@@ -160,8 +177,10 @@ public class PlayListPlayer: PlayListPlayerType {
     private func playerDidFinishTrackPlaying(notification: NSNotification) {
         didFinishPlayingTrack?()
 
-        if currentIndex == playListURLs.count - 1 {
+        if currentIndex == lastTrackIndex() {
             didFinishPlayingPlayList?()
         }
+
+        skipToNextTrack()
     }
 }
