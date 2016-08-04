@@ -307,39 +307,128 @@ class PlayListPlayerSpec: QuickSpec {
                 })
             })
             describe("skipToNextTrack()", {
-                context("when playList was set", {
-                    context("and currentIndex is last index", {
-                        it("will play next track", closure: {
-                            let urls: [NSURL] = [
-                                FileHelper.audio1URL(),
-                                FileHelper.audio2URL(),
-                                FileHelper.movie1URL()]
-                            let player: PlayListPlayer = PlayListPlayer()
+                context("when playList was set,", {
+                    context("playMode is RepeatPlayList", {
+                        context("and currentIndex is last index", {
+                            it("will play first track from the beginning of it", closure: {
+                                let urls: [NSURL] = [
+                                    FileHelper.audio1URL(),
+                                    FileHelper.audio2URL(),
+                                    FileHelper.movie1URL()]
+                                let player: PlayListPlayer = PlayListPlayer()
 
-                            player.setPlayList(urls)
-                            player.skipToNextTrack()
+                                player.playMode = .RepeatPlayList
+                                player.setPlayList(urls)
+                                player.setCurrentIndex(2)
+                                player.play()
 
-                            expect(player.isPlaying()).to(beTrue())
-                            expect(player.currentIndex).to(equal(1))
-                            expect(player.currentTrackURL()).to(equal(FileHelper.audio2URL()))
+                                player.skipToNextTrack()
+
+                                expect(player.isPlaying()).to(beTrue())
+                                expect(player.currentIndex).to(equal(0))
+                                expect(player.engine().currentTime()).to(equal(kCMTimeZero))
+                            })
+                        })
+                        context("and currentIndex is not last index", {
+                            it("will play next track", closure: {
+                                let urls: [NSURL] = [
+                                    FileHelper.audio1URL(),
+                                    FileHelper.audio2URL(),
+                                    FileHelper.movie1URL()]
+                                let player: PlayListPlayer = PlayListPlayer()
+
+                                player.playMode = .RepeatPlayList
+                                player.setPlayList(urls)
+                                player.play()
+
+                                player.skipToNextTrack()
+
+                                expect(player.isPlaying()).to(beTrue())
+                                expect(player.currentIndex).to(equal(1))
+                                expect(player.engine().currentTime()).to(equal(kCMTimeZero))
+                            })
                         })
                     })
-                    context("and currentIndex is not last index", {
-                        it("will pause at current track", closure: {
-                            let urls: [NSURL] = [
-                                FileHelper.audio1URL(),
-                                FileHelper.audio2URL(),
-                                FileHelper.movie1URL()]
-                            let player: PlayListPlayer = PlayListPlayer()
+                    context("playMode is RepeatItem", {
+                        context("and currentIndex is last index", {
+                            it("will play current track from the beginning of it", closure: {
+                                let urls: [NSURL] = [
+                                    FileHelper.audio1URL(),
+                                    FileHelper.audio2URL(),
+                                    FileHelper.movie1URL()]
+                                let player: PlayListPlayer = PlayListPlayer()
 
-                            player.setPlayList(urls)
-                            player.setCurrentIndex(2)
-                            player.skipToNextTrack()
+                                player.playMode = .RepeatItem
+                                player.setPlayList(urls)
+                                player.setCurrentIndex(2)
+                                player.play()
 
-                            expect(player.isPlaying()).to(beFalse())
-                            expect(player.currentIndex).to(equal(2))
-                            expect(player.engine().currentTime()).to(equal(kCMTimeZero))
-                            expect(player.currentTrackURL()).to(equal(FileHelper.movie1URL()))
+                                player.skipToNextTrack()
+
+                                expect(player.isPlaying()).to(beTrue())
+                                expect(player.currentIndex).to(equal(2))
+                                expect(player.engine().currentTime()).to(equal(kCMTimeZero))
+                            })
+                        })
+                        context("and currentIndex is not last index", {
+                            it("will play current track from the beginning of it", closure: {
+                                let urls: [NSURL] = [
+                                    FileHelper.audio1URL(),
+                                    FileHelper.audio2URL(),
+                                    FileHelper.movie1URL()]
+                                let player: PlayListPlayer = PlayListPlayer()
+
+                                player.playMode = .RepeatItem
+                                player.setPlayList(urls)
+                                player.play()
+
+                                player.skipToNextTrack()
+
+                                expect(player.isPlaying()).to(beTrue())
+                                expect(player.currentIndex).to(equal(0))
+                                expect(player.engine().currentTime()).to(equal(kCMTimeZero))
+                            })
+                        })
+                    })
+                    context("playMode is NoRepeat", {
+                        context("and currentIndex is last index", {
+                            it("will pause at the beginning of first track", closure: {
+                                let urls: [NSURL] = [
+                                    FileHelper.audio1URL(),
+                                    FileHelper.audio2URL(),
+                                    FileHelper.movie1URL()]
+                                let player: PlayListPlayer = PlayListPlayer()
+
+                                player.playMode = .NoRepeat
+                                player.setPlayList(urls)
+                                player.setCurrentIndex(2)
+                                player.play()
+
+                                player.skipToNextTrack()
+
+                                expect(player.isPlaying()).to(beFalse())
+                                expect(player.currentIndex).to(equal(0))
+                                expect(player.engine().currentTime()).to(equal(kCMTimeZero))
+                            })
+                        })
+                        context("and currentIndex is not last index", {
+                            it("will play next track", closure: {
+                                let urls: [NSURL] = [
+                                    FileHelper.audio1URL(),
+                                    FileHelper.audio2URL(),
+                                    FileHelper.movie1URL()]
+                                let player: PlayListPlayer = PlayListPlayer()
+
+                                player.playMode = .NoRepeat
+                                player.setPlayList(urls)
+                                player.play()
+                                
+                                player.skipToNextTrack()
+                                
+                                expect(player.isPlaying()).to(beTrue())
+                                expect(player.currentIndex).to(equal(1))
+                                expect(player.engine().currentTime()).to(equal(kCMTimeZero))
+                            })
                         })
                     })
                 })
@@ -406,39 +495,135 @@ class PlayListPlayerSpec: QuickSpec {
                 })
             })
             describe("jumpToPreviousTrack()", {
-                context("when playList was set", {
-                    context("and currentIndex is 0", {
-                        it("will play next track", closure: {
-                            let urls: [NSURL] = [
-                                FileHelper.audio1URL(),
-                                FileHelper.audio2URL(),
-                                FileHelper.movie1URL()]
-                            let player: PlayListPlayer = PlayListPlayer()
+                context("when playList was set,", {
+                    context("playMode is RepeatPlayList", {
+                        context("and currentIndex is 0", {
+                            it("will play first track from the beginning of it", closure: {
+                                let urls: [NSURL] = [
+                                    FileHelper.audio1URL(),
+                                    FileHelper.audio2URL(),
+                                    FileHelper.movie1URL()]
+                                let player: PlayListPlayer = PlayListPlayer()
 
-                            player.setPlayList(urls)
-                            player.jumpToPreviousTrack()
+                                player.playMode = .RepeatPlayList
 
-                            expect(player.isPlaying()).to(beTrue())
-                            expect(player.currentIndex).to(equal(0))
-                            expect(player.currentTrackURL()).to(equal(FileHelper.audio1URL()))
+                                player.setPlayList(urls)
+                                player.play()
+                                player.jumpToPreviousTrack()
+
+                                expect(player.isPlaying()).to(beTrue())
+                                expect(player.currentIndex).to(equal(0))
+                                expect(player.engine().currentTime()).to(equal(kCMTimeZero))
+                            })
+                        })
+                        context("and currentIndex is not 0", {
+                            it("will play previous track", closure: {
+                                let urls: [NSURL] = [
+                                    FileHelper.audio1URL(),
+                                    FileHelper.audio2URL(),
+                                    FileHelper.movie1URL()]
+                                let player: PlayListPlayer = PlayListPlayer()
+
+                                player.playMode = .RepeatPlayList
+                                player.setPlayList(urls)
+                                player.play()
+                                player.skipToNextTrack()
+
+                                expect(player.currentIndex).to(equal(1))
+
+                                player.jumpToPreviousTrack()
+
+                                expect(player.isPlaying()).to(beTrue())
+                                expect(player.currentIndex).to(equal(0))
+                                expect(player.engine().currentTime()).to(equal(kCMTimeZero))
+                            })
                         })
                     })
-                    context("and currentIndex is not 0", {
-                        it("will pause at current track", closure: {
-                            let urls: [NSURL] = [
-                                FileHelper.audio1URL(),
-                                FileHelper.audio2URL(),
-                                FileHelper.movie1URL()]
-                            let player: PlayListPlayer = PlayListPlayer()
+                    context("playMode is RepeatItem", {
+                        context("and currentIndex is 0", {
+                            it("will play current track from the beginning of it", closure: {
+                                let urls: [NSURL] = [
+                                    FileHelper.audio1URL(),
+                                    FileHelper.audio2URL(),
+                                    FileHelper.movie1URL()]
+                                let player: PlayListPlayer = PlayListPlayer()
 
-                            player.setPlayList(urls)
-                            player.setCurrentIndex(2)
-                            player.jumpToPreviousTrack()
+                                player.playMode = .RepeatItem
 
-                            expect(player.isPlaying()).to(beTrue())
-                            expect(player.currentIndex).to(equal(1))
-                            expect(player.engine().currentTime()).to(equal(kCMTimeZero))
-                            expect(player.currentTrackURL()).to(equal(FileHelper.audio2URL()))
+                                player.setPlayList(urls)
+                                player.play()
+                                player.jumpToPreviousTrack()
+
+                                expect(player.isPlaying()).to(beTrue())
+                                expect(player.currentIndex).to(equal(0))
+                                expect(player.engine().currentTime()).to(equal(kCMTimeZero))
+                            })
+                        })
+                        context("and currentIndex is not 0", {
+                            it("will play current track from the beginning of it", closure: {
+                                let urls: [NSURL] = [
+                                    FileHelper.audio1URL(),
+                                    FileHelper.audio2URL(),
+                                    FileHelper.movie1URL()]
+                                let player: PlayListPlayer = PlayListPlayer()
+
+                                player.playMode = .RepeatItem
+
+                                player.setPlayList(urls)
+                                player.setCurrentIndex(1)
+                                player.play()
+
+                                expect(player.currentIndex).to(equal(1))
+
+                                player.jumpToPreviousTrack()
+
+                                expect(player.isPlaying()).to(beTrue())
+                                expect(player.currentIndex).to(equal(1))
+                                expect(player.engine().currentTime()).to(equal(kCMTimeZero))
+                            })
+                        })
+                    })
+                    context("playMode is NoRepeat", {
+                        context("and currentIndex is 0", {
+                            it("will play first track from the beginning of it", closure: {
+                                let urls: [NSURL] = [
+                                    FileHelper.audio1URL(),
+                                    FileHelper.audio2URL(),
+                                    FileHelper.movie1URL()]
+                                let player: PlayListPlayer = PlayListPlayer()
+
+                                player.playMode = .NoRepeat
+
+                                player.setPlayList(urls)
+                                player.play()
+                                player.jumpToPreviousTrack()
+
+                                expect(player.isPlaying()).to(beTrue())
+                                expect(player.currentIndex).to(equal(0))
+                                expect(player.engine().currentTime()).to(equal(kCMTimeZero))
+                            })
+                        })
+                        context("and currentIndex is not 0", {
+                            it("will play previous track", closure: {
+                                let urls: [NSURL] = [
+                                    FileHelper.audio1URL(),
+                                    FileHelper.audio2URL(),
+                                    FileHelper.movie1URL()]
+                                let player: PlayListPlayer = PlayListPlayer()
+
+                                player.playMode = .NoRepeat
+                                player.setPlayList(urls)
+                                player.play()
+                                player.skipToNextTrack()
+
+                                expect(player.currentIndex).to(equal(1))
+
+                                player.jumpToPreviousTrack()
+
+                                expect(player.isPlaying()).to(beTrue())
+                                expect(player.currentIndex).to(equal(0))
+                                expect(player.engine().currentTime()).to(equal(kCMTimeZero))
+                            })
                         })
                     })
                 })
