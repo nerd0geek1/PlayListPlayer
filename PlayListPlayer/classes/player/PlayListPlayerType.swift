@@ -34,6 +34,10 @@ public protocol PlayListPlayerType {
     func beginRewinding()
     func endRewinding()
     func jumpToPreviousTrack()
+
+    func seekToBeginning()
+    //Position take values between 0.0(the beginning of a track) and 1.0(the end of a track).
+    func seekTo(position: Float)
 }
 
 public enum PlayerPlayMode: Int {

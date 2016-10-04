@@ -564,6 +564,48 @@ class PlayListPlayerSpec: QuickSpec {
                     })
                 })
             })
+            describe("seekToBeginning()", {
+                context("when playList was set", {
+                    it("will make engine().currentItem?.currentTime() kCMTimeZero", closure: {
+                        let urls: [NSURL] = [
+                            FileHelper.audio1URL(),
+                            FileHelper.audio2URL(),
+                            FileHelper.movie1URL()]
+                        let player: PlayListPlayer = PlayListPlayer()
+
+                        player.setPlayList(urls)
+                        player.seekTo(0.5)
+
+                        expect(player.engine().currentItem?.currentTime()).notTo(equal(kCMTimeZero))
+
+                        player.seekToBeginning()
+
+                        expect(player.engine().currentItem?.currentTime()).to(equal(kCMTimeZero))
+                    })
+                })
+            })
+            describe("seekTo(position: Float)", {
+                context("when playList was set", {
+                    it("will update engine().currentItem?.currentTime() expected value", closure: {
+                        let urls: [NSURL] = [
+                            FileHelper.audio1URL(),
+                            FileHelper.audio2URL(),
+                            FileHelper.movie1URL()]
+                        let player: PlayListPlayer = PlayListPlayer()
+                        let position: Float        = 0.5
+
+                        player.setPlayList(urls)
+                        player.seekTo(position)
+
+                        let currentTime: Float   = Float(player.engine().currentTime().value)
+                        let duration: Float      = Float(player.engine().currentItem?.asset.duration.value ?? 0)
+                        let expectedValue: Float = duration * position
+
+                        expect(currentTime).notTo(equal(0))
+                        expect(currentTime).to(equal(expectedValue))
+                    })
+                })
+            })
         }
     }
 }
