@@ -215,16 +215,6 @@ class PlayListPlayerSpec: QuickSpec {
                         expect(player.currentTrackURL()).to(equal(FileHelper.audio1URL()))
                     })
                 })
-                context("when playList wasn't set", {
-                    it("will not cause crash", closure: {
-                        let player: PlayListPlayer = PlayListPlayer()
-
-                        player.play()
-
-                        expect(player.isPlaying()).to(beFalse())
-                    })
-                })
-
             })
             describe("pause()", {
                 context("when playList was set", {
@@ -244,15 +234,6 @@ class PlayListPlayerSpec: QuickSpec {
                         expect(player.currentTrackURL()).to(equal(FileHelper.audio1URL()))
                     })
                 })
-                context("when playList wasn't set", {
-                    it("will not cause crash", closure: {
-                        let player: PlayListPlayer = PlayListPlayer()
-
-                        player.pause()
-
-                        expect(player.isPlaying()).to(beFalse())
-                    })
-                })
             })
             describe("beginFastForwarding()", {
                 context("when playList was set", {
@@ -270,15 +251,6 @@ class PlayListPlayerSpec: QuickSpec {
                         expect(player.currentTrackURL()).to(equal(FileHelper.audio1URL()))
                     })
                 })
-                context("when playList wasn't set", {
-                    it("will not cause crash", closure: {
-                        let player: PlayListPlayer = PlayListPlayer()
-
-                        player.beginFastForwarding()
-
-                        expect(player.isPlaying()).to(beFalse())
-                    })
-                })
             })
             describe("endFastForwarding()", {
                 context("when playList was set", {
@@ -294,15 +266,6 @@ class PlayListPlayerSpec: QuickSpec {
 
                         expect(player.engine().rate).to(equal(1.0))
                         expect(player.currentTrackURL()).to(equal(FileHelper.audio1URL()))
-                    })
-                })
-                context("when playList wasn't set", {
-                    it("will not cause crash", closure: {
-                        let player: PlayListPlayer = PlayListPlayer()
-
-                        player.endFastForwarding()
-
-                        expect(player.isPlaying()).to(beFalse())
                     })
                 })
             })
@@ -432,15 +395,6 @@ class PlayListPlayerSpec: QuickSpec {
                         })
                     })
                 })
-                context("when playList wasn't set", {
-                    it("will not cause crash", closure: {
-                        let player: PlayListPlayer = PlayListPlayer()
-
-                        player.skipToNextTrack()
-
-                        expect(player.isPlaying()).to(beFalse())
-                    })
-                })
             })
             describe("beginRewinding()", {
                 context("when playList was set", {
@@ -458,15 +412,6 @@ class PlayListPlayerSpec: QuickSpec {
                         expect(player.currentTrackURL()).to(equal(FileHelper.audio1URL()))
                     })
                 })
-                context("when playList wasn't set", {
-                    it("will not cause crash", closure: {
-                        let player: PlayListPlayer = PlayListPlayer()
-
-                        player.beginRewinding()
-
-                        expect(player.isPlaying()).to(beFalse())
-                    })
-                })
             })
             describe("endRewinding()", {
                 context("when playList was set", {
@@ -482,15 +427,6 @@ class PlayListPlayerSpec: QuickSpec {
 
                         expect(player.engine().rate).to(equal(1.0))
                         expect(player.currentTrackURL()).to(equal(FileHelper.audio1URL()))
-                    })
-                })
-                context("when playList wasn't set", {
-                    it("will not cause crash", closure: {
-                        let player: PlayListPlayer = PlayListPlayer()
-
-                        player.endRewinding()
-
-                        expect(player.isPlaying()).to(beFalse())
                     })
                 })
             })
@@ -625,15 +561,6 @@ class PlayListPlayerSpec: QuickSpec {
                                 expect(player.engine().currentTime()).to(equal(kCMTimeZero))
                             })
                         })
-                    })
-                })
-                context("when playList wasn't set", {
-                    it("will not cause crash", closure: {
-                        let player: PlayListPlayer = PlayListPlayer()
-
-                        player.jumpToPreviousTrack()
-                        
-                        expect(player.isPlaying()).to(beFalse())
                     })
                 })
             })
