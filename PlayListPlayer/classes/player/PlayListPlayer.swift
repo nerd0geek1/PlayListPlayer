@@ -18,7 +18,7 @@ public class PlayListPlayer: PlayListPlayerType {
     public var didFinishPlayingTrack:(() -> Void)?
     public var didFinishPlayingPlayList:(() -> Void)?
 
-    public var playMode: PlayMode = .RepeatPlayList
+    public var playMode: PlayerPlayMode = .RepeatPlayList
 
     //MARK: - private properties
 

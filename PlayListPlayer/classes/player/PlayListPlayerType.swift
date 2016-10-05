@@ -13,7 +13,7 @@ public protocol PlayListPlayerType {
 
     var didFinishPlayingTrack:(() -> Void)? { get set }
     var didFinishPlayingPlayList:(() -> Void)? { get set }
-    var playMode: PlayMode { get set }
+    var playMode: PlayerPlayMode { get set }
 
     func setPlayList(urls: [NSURL])
     func setCurrentIndex(index: Int) -> Bool
@@ -33,7 +33,7 @@ public protocol PlayListPlayerType {
     func jumpToPreviousTrack()
 }
 
-public enum PlayMode: Int {
+public enum PlayerPlayMode: Int {
     case RepeatPlayList
     case RepeatItem
     case NoRepeat
