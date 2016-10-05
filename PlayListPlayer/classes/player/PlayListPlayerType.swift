@@ -13,7 +13,9 @@ public protocol PlayListPlayerType {
 
     var didFinishPlayingTrack:(() -> Void)? { get set }
     var didFinishPlayingPlayList:(() -> Void)? { get set }
+
     var playMode: PlayerPlayMode { get set }
+    var playList: [NSURL] { get }
 
     func setPlayList(urls: [NSURL])
     func setCurrentIndex(index: Int) -> Bool

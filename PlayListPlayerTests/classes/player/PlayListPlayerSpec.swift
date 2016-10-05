@@ -25,7 +25,7 @@ class PlayListPlayerSpec: QuickSpec {
                     player.setPlayList(urls)
 
                     expect(player.hasPlayList()).to(beTrue())
-                    expect(player.playListURLs).to(equal(urls))
+                    expect(player.playList).to(equal(urls))
                 })
             })
             describe("setCurrentIndex(index: Int)", {
