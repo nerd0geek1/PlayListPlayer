@@ -19,19 +19,22 @@ public class PlayListPlayer: PlayListPlayerType {
     public var didFinishPlayingPlayList:(() -> Void)?
 
     public var playMode: PlayerPlayMode = .RepeatPlayList
+    public var playList: [NSURL] {
+        return urls
+    }
 
     //MARK: - private properties
 
     private let player: AVPlayer = AVPlayer()
 
-    private(set) var playListURLs: [NSURL] = []
+    private var urls: [NSURL] = []
     private(set) var currentIndex: Int     = 0
 
 
     //MARK: - update PlayListPlayer properties
 
     public func setPlayList(urls: [NSURL]) {
-        self.playListURLs = urls
+        self.urls = urls
         currentIndex = 0
 
         setupPlayerItem()
@@ -54,7 +57,7 @@ public class PlayListPlayer: PlayListPlayerType {
     }
 
     public func hasPlayList() -> Bool {
-        return !playListURLs.isEmpty
+        return !urls.isEmpty
     }
 
     public func currentTrackURL() -> NSURL? {
@@ -140,7 +143,7 @@ public class PlayListPlayer: PlayListPlayerType {
             return
         }
 
-        guard let url: NSURL = playListURLs[currentIndex] else {
+        guard let url: NSURL = urls[currentIndex] else {
             return
         }
 
@@ -160,7 +163,7 @@ public class PlayListPlayer: PlayListPlayerType {
     }
 
     private func lastTrackIndex() -> Int {
-        return playListURLs.count == 0 ? 0 : playListURLs.count - 1
+        return urls.count == 0 ? 0 : urls.count - 1
     }
 
     private func resetPlayerRate() {
