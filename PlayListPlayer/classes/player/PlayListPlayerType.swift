@@ -16,6 +16,7 @@ public protocol PlayListPlayerType {
 
     var playMode: PlayerPlayMode { get set }
     var playList: [NSURL] { get }
+    var currentIndex: Int { get }
 
     func setPlayList(urls: [NSURL])
     func setCurrentIndex(index: Int) -> Bool
