@@ -22,20 +22,23 @@ public class PlayListPlayer: PlayListPlayerType {
     public var playList: [NSURL] {
         return urls
     }
+    public var currentIndex: Int {
+        return index
+    }
 
     //MARK: - private properties
 
     private let player: AVPlayer = AVPlayer()
 
     private var urls: [NSURL] = []
-    private(set) var currentIndex: Int     = 0
+    private var index: Int    = 0
 
 
     //MARK: - update PlayListPlayer properties
 
     public func setPlayList(urls: [NSURL]) {
-        self.urls = urls
-        currentIndex = 0
+        self.urls  = urls
+        self.index = 0
 
         setupPlayerItem()
     }
@@ -45,7 +48,7 @@ public class PlayListPlayer: PlayListPlayerType {
             return false
         }
 
-        currentIndex = index
+        self.index = index
         setupPlayerItem()
         return true
     }
