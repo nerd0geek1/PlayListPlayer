@@ -106,7 +106,7 @@ public class PlayListPlayer: PlayListPlayerType {
             setCurrentIndex(nextIndex)
             play()
         case .RepeatItem:
-            seekToTrackBeginning()
+            seekToBeginning()
         case .NoRepeat:
             setCurrentIndex(nextIndex)
             if isLastTrack {
@@ -130,13 +130,29 @@ public class PlayListPlayer: PlayListPlayerType {
         switch playMode {
         case .RepeatPlayList, .NoRepeat:
             if isFirstTrack {
-                seekToTrackBeginning()
+                seekToBeginning()
             } else {
                 setCurrentIndex(previousIndex)
             }
         case .RepeatItem:
-            seekToTrackBeginning()
+            seekToBeginning()
         }
+    }
+
+    public func seekToBeginning() {
+        seekTo(0)
+    }
+
+    public func seekTo(position: Float) {
+        guard let currentItem: AVPlayerItem = player.currentItem else {
+            return
+        }
+
+        let duration: CMTime = currentItem.asset.duration
+        let value: Float     = Float(duration.value) * position
+        let seekTime: CMTime = CMTimeMake(CMTimeValue(value), duration.timescale)
+
+        currentItem.seekToTime(seekTime)
     }
 
     //MARK: - private
@@ -171,10 +187,6 @@ public class PlayListPlayer: PlayListPlayerType {
 
     private func resetPlayerRate() {
         player.rate = 1.0
-    }
-
-    private func seekToTrackBeginning() {
-        player.seekToTime(kCMTimeZero)
     }
 
     //MARK: - Notification
