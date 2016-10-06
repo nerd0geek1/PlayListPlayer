@@ -11,6 +11,7 @@ import AVFoundation
 
 public protocol PlayListPlayerType {
 
+    var didStartPlayingTrack:(() -> Void)? { get set }
     var didFinishPlayingTrack:(() -> Void)? { get set }
     var didFinishPlayingPlayList:(() -> Void)? { get set }
 

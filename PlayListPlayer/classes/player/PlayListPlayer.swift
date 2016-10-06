@@ -15,6 +15,7 @@ public class PlayListPlayer: PlayListPlayerType {
 
     public static let sharedInstance: PlayListPlayer = PlayListPlayer()
 
+    public var didStartPlayingTrack:(() -> Void)?
     public var didFinishPlayingTrack:(() -> Void)?
     public var didFinishPlayingPlayList:(() -> Void)?
 
@@ -141,6 +142,7 @@ public class PlayListPlayer: PlayListPlayerType {
 
     public func seekToBeginning() {
         seekTo(0)
+        didStartPlayingTrack?()
     }
 
     public func seekTo(position: Float) {
@@ -170,6 +172,7 @@ public class PlayListPlayer: PlayListPlayerType {
 
         let playerItem: AVPlayerItem = AVPlayerItem(URL: url)
         player.replaceCurrentItemWithPlayerItem(playerItem)
+        didStartPlayingTrack?()
 
         NSNotificationCenter.defaultCenter().addObserver(self,
                                                          selector: #selector(playerDidFinishTrackPlaying),
