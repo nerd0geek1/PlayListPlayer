@@ -18,7 +18,7 @@ public class MovieRenderingView: UIView {
         return AVPlayerLayer.self
     }
 
-    //MARK: - public
+    // MARK: - public
 
     public func setPlayer(player: PlayListPlayer) {
         layer.setPlayer(player)

@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         player.play()
     }
 
-    //MARK: - private
+    // MARK: - private
 
     private func setupPlayer() {
         let url1: NSURL = NSBundle.mainBundle().URLForResource("sample_audio1", withExtension: "mp3")!
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         movieRenderingView.setPlayer(player)
     }
 
-    //MARK: - IBAction
+    // MARK: - IBAction
 
     @IBAction
     func tapPrevious() {
