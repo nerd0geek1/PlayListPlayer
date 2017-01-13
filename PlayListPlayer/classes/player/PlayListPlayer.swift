@@ -34,7 +34,6 @@ public class PlayListPlayer: PlayListPlayerType {
     private var urls: [NSURL] = []
     private var index: Int    = 0
 
-
     // MARK: - update PlayListPlayer properties
 
     public func setPlayList(urls: [NSURL]) {
