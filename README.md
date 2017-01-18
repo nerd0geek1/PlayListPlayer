@@ -8,15 +8,15 @@ PlayListPlayer is `AVPlayer` wrapper module to simplify playing audio/movie file
 ## How to use
 ```Swift
 //assign audio movie files to Player
-let url1: NSURL = NSURL(string: "...")!
-let url2: NSURL = NSURL(string: "...")!
-let url3: NSURL = NSURL(string: "...")!
-PlayListPlayer.sharedInstance.setPlayList([url1, url2, url3])
+let url1: URL = URL(string: "...")!
+let url2: URL = URL(string: "...")!
+let url3: URL = URL(string: "...")!
+PlayListPlayer.sharedInstance.set(playList: [url1, url2, url3])
 
 //setup MovieRenderingView(If you want to play video file)
 let movieRenderingView: MovieRenderingView = MovieRenderingView()
 view.addSubView(movieRenderingView)
-movieRenderingView.setPlayer(player)
+movieRenderingView.set(player: player)
 
 //start playing
 PlayListPlayer.sharedInstance.play()
@@ -30,7 +30,7 @@ You can confirm screen like below with sample project.
 - iOS 9.0+
 - Xcode 7.3 or above
 
-PlayListPlayer is now supporting Swift2.2.
+PlayListPlayer is now supporting Swift2.3/Swift3.
 
 ## Installation
 
