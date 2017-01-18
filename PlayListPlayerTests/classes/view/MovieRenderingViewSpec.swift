@@ -24,7 +24,7 @@ class MovieRenderingViewSpec: QuickSpec {
                     let view: MovieRenderingView = MovieRenderingView()
                     let player: PlayListPlayer   = PlayListPlayer()
 
-                    view.setPlayer(player)
+                    view.set(player: player)
 
                     expect((view.layer as! AVPlayerLayer).player).to(equal(player.engine()))
                 })
