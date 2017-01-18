@@ -11,7 +11,7 @@ import AVFoundation
 
 public class PlayListPlayer: PlayListPlayerType {
 
-    //MARK: - public properties
+    // MARK: - public properties
 
     public static let sharedInstance: PlayListPlayer = PlayListPlayer()
 
@@ -27,15 +27,14 @@ public class PlayListPlayer: PlayListPlayerType {
         return index
     }
 
-    //MARK: - private properties
+    // MARK: - private properties
 
     private let player: AVPlayer = AVPlayer()
 
     private var urls: [NSURL] = []
     private var index: Int    = 0
 
-
-    //MARK: - update PlayListPlayer properties
+    // MARK: - update PlayListPlayer properties
 
     public func setPlayList(urls: [NSURL]) {
         self.urls  = urls
@@ -54,7 +53,7 @@ public class PlayListPlayer: PlayListPlayerType {
         return true
     }
 
-    //MARK: - PlayListPlayer properties
+    // MARK: - PlayListPlayer properties
 
     public func engine() -> AVPlayer {
         return player
@@ -80,7 +79,7 @@ public class PlayListPlayer: PlayListPlayerType {
         return player.rate != 0.0
     }
 
-    //MARK: - operate PlayListPlayer
+    // MARK: - operate PlayListPlayer
 
     public func play() {
         player.play()
@@ -157,7 +156,7 @@ public class PlayListPlayer: PlayListPlayerType {
         currentItem.seekToTime(seekTime)
     }
 
-    //MARK: - private
+    // MARK: - private
 
     private func setupPlayerItem() {
         if !isValidIndex(currentIndex) {
@@ -192,7 +191,7 @@ public class PlayListPlayer: PlayListPlayerType {
         player.rate = 1.0
     }
 
-    //MARK: - Notification
+    // MARK: - Notification
 
     @objc
     private func playerDidFinishTrackPlaying(notification: NSNotification) {
