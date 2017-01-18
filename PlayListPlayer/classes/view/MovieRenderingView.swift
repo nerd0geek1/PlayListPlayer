@@ -10,17 +10,17 @@ import AVFoundation
 import UIKit
 
 public class MovieRenderingView: UIView {
-    override public func layoutSublayersOfLayer(layer: CALayer) {
-        super.layoutSublayersOfLayer(layer)
+    override public func layoutSublayers(of layer: CALayer) {
+        super.layoutSublayers(of: layer)
     }
 
-    override public class func layerClass () -> AnyClass {
+    override public class var layerClass: AnyClass {
         return AVPlayerLayer.self
     }
 
     // MARK: - public
 
-    public func setPlayer(player: PlayListPlayer) {
-        layer.setPlayer(player)
+    public func set(player: PlayListPlayer) {
+        layer.set(player: player)
     }
 }

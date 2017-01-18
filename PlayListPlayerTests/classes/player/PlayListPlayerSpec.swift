@@ -13,23 +13,23 @@ import Nimble
 class PlayListPlayerSpec: QuickSpec {
     override func spec() {
         describe("PlayListPlayer") {
-            describe("setPlayList(urls: [NSURL])", {
+            describe("set(playList: [URL])", {
                 it("will update playListURLs", closure: {
-                    let urls: [NSURL] = [
+                    let urls: [URL] = [
                         FileHelper.audio1URL(),
                         FileHelper.audio2URL(),
                         FileHelper.movie1URL()]
 
                     let player: PlayListPlayer = PlayListPlayer()
 
-                    player.setPlayList(urls)
+                    player.set(playList: urls)
 
                     expect(player.hasPlayList()).to(beTrue())
                     expect(player.playList).to(equal(urls))
                 })
             })
-            describe("setCurrentIndex(index: Int)", {
-                let urls: [NSURL] = [
+            describe("set(currentIndex: Int)", {
+                let urls: [URL] = [
                     FileHelper.audio1URL(),
                     FileHelper.audio2URL(),
                     FileHelper.movie1URL()]
@@ -37,12 +37,12 @@ class PlayListPlayerSpec: QuickSpec {
                 context("when index is within playList index range", {
                     it("will return true, update current index", closure: {
                         let player: PlayListPlayer = PlayListPlayer()
-                        player.setPlayList(urls)
+                        player.set(playList: urls)
 
                         expect(player.currentIndex).to(equal(0))
 
                         let index: Int   = 2
-                        let result: Bool = player.setCurrentIndex(index)
+                        let result: Bool = player.set(currentIndex: index)
 
                         expect(result).to(beTrue())
                         expect(player.currentIndex).to(equal(index))
@@ -51,11 +51,11 @@ class PlayListPlayerSpec: QuickSpec {
                 context("when index is beyond playList index range", {
                     it("will return false, don't update current index", closure: {
                         let player: PlayListPlayer = PlayListPlayer()
-                        player.setPlayList(urls)
+                        player.set(playList: urls)
 
                         expect(player.currentIndex).to(equal(0))
 
-                        let result: Bool = player.setCurrentIndex(3)
+                        let result: Bool = player.set(currentIndex: 3)
 
                         expect(result).to(beFalse())
                         expect(player.currentIndex).to(equal(0))
@@ -75,13 +75,13 @@ class PlayListPlayerSpec: QuickSpec {
             describe("hasPlayList()", {
                 context("when playList was set", {
                     it("will return true", closure: {
-                        let urls: [NSURL] = [
+                        let urls: [URL] = [
                             FileHelper.audio1URL(),
                             FileHelper.audio2URL(),
                             FileHelper.movie1URL()]
                         let player: PlayListPlayer = PlayListPlayer()
 
-                        player.setPlayList(urls)
+                        player.set(playList: urls)
 
                         expect(player.hasPlayList()).to(beTrue())
                     })
@@ -98,13 +98,13 @@ class PlayListPlayerSpec: QuickSpec {
             describe("currentTrackURL()", {
                 context("playList was set", {
                     it("will return current track url", closure: {
-                        let urls: [NSURL] = [
+                        let urls: [URL] = [
                             FileHelper.audio1URL(),
                             FileHelper.audio2URL(),
                             FileHelper.movie1URL()]
                         let player: PlayListPlayer = PlayListPlayer()
 
-                        player.setPlayList(urls)
+                        player.set(playList: urls)
 
                         expect(player.currentTrackURL()).to(equal(FileHelper.audio1URL()))
                     })
@@ -129,26 +129,26 @@ class PlayListPlayerSpec: QuickSpec {
 
                 context("when playList was set", {
                     it("will return false", closure: {
-                        let urls: [NSURL] = [
+                        let urls: [URL] = [
                             FileHelper.audio1URL(),
                             FileHelper.audio2URL(),
                             FileHelper.movie1URL()]
                         let player: PlayListPlayer = PlayListPlayer()
 
-                        player.setPlayList(urls)
+                        player.set(playList: urls)
 
                         expect(player.isPlaying()).to(beFalse())
                     })
                 })
                 context("when playList was set and called play()", {
                     it("will return true", closure: {
-                        let urls: [NSURL] = [
+                        let urls: [URL] = [
                             FileHelper.audio1URL(),
                             FileHelper.audio2URL(),
                             FileHelper.movie1URL()]
                         let player: PlayListPlayer = PlayListPlayer()
 
-                        player.setPlayList(urls)
+                        player.set(playList: urls)
                         player.play()
 
                         expect(player.isPlaying()).to(beTrue())
@@ -156,13 +156,13 @@ class PlayListPlayerSpec: QuickSpec {
                 })
                 context("when playList was set and called beginFastForwarding()", {
                     it("will return true", closure: {
-                        let urls: [NSURL] = [
+                        let urls: [URL] = [
                             FileHelper.audio1URL(),
                             FileHelper.audio2URL(),
                             FileHelper.movie1URL()]
                         let player: PlayListPlayer = PlayListPlayer()
 
-                        player.setPlayList(urls)
+                        player.set(playList: urls)
                         player.beginFastForwarding()
 
                         expect(player.isPlaying()).to(beTrue())
@@ -170,13 +170,13 @@ class PlayListPlayerSpec: QuickSpec {
                 })
                 context("when playList was set and called pause()", {
                     it("will return false", closure: {
-                        let urls: [NSURL] = [
+                        let urls: [URL] = [
                             FileHelper.audio1URL(),
                             FileHelper.audio2URL(),
                             FileHelper.movie1URL()]
                         let player: PlayListPlayer = PlayListPlayer()
 
-                        player.setPlayList(urls)
+                        player.set(playList: urls)
                         player.play()
                         player.pause()
 
@@ -185,13 +185,13 @@ class PlayListPlayerSpec: QuickSpec {
                 })
                 context("when playList was set and called beginRewinding()", {
                     it("will return true", closure: {
-                        let urls: [NSURL] = [
+                        let urls: [URL] = [
                             FileHelper.audio1URL(),
                             FileHelper.audio2URL(),
                             FileHelper.movie1URL()]
                         let player: PlayListPlayer = PlayListPlayer()
 
-                        player.setPlayList(urls)
+                        player.set(playList: urls)
                         player.beginRewinding()
 
                         expect(player.isPlaying()).to(beTrue())
@@ -202,13 +202,13 @@ class PlayListPlayerSpec: QuickSpec {
             describe("play()", {
                 context("when playList was set", {
                     it("will make rate 1.0, currentTrackURL() audio1URL()", closure: {
-                        let urls: [NSURL] = [
+                        let urls: [URL] = [
                             FileHelper.audio1URL(),
                             FileHelper.audio2URL(),
                             FileHelper.movie1URL()]
                         let player: PlayListPlayer = PlayListPlayer()
 
-                        player.setPlayList(urls)
+                        player.set(playList: urls)
                         player.play()
 
                         expect(player.engine().rate).to(equal(1.0))
@@ -219,13 +219,13 @@ class PlayListPlayerSpec: QuickSpec {
             describe("pause()", {
                 context("when playList was set", {
                     it("will make rate 0.0, currentTrackURL() audio1URL()", closure: {
-                        let urls: [NSURL] = [
+                        let urls: [URL] = [
                             FileHelper.audio1URL(),
                             FileHelper.audio2URL(),
                             FileHelper.movie1URL()]
                         let player: PlayListPlayer = PlayListPlayer()
 
-                        player.setPlayList(urls)
+                        player.set(playList: urls)
                         player.play()
                         expect(player.engine().rate).to(equal(1.0))
                         player.pause()
@@ -238,13 +238,13 @@ class PlayListPlayerSpec: QuickSpec {
             describe("beginFastForwarding()", {
                 context("when playList was set", {
                     it("will make rate 2.0, currentTrackURL() audio1URL()", closure: {
-                        let urls: [NSURL] = [
+                        let urls: [URL] = [
                             FileHelper.audio1URL(),
                             FileHelper.audio2URL(),
                             FileHelper.movie1URL()]
                         let player: PlayListPlayer = PlayListPlayer()
 
-                        player.setPlayList(urls)
+                        player.set(playList: urls)
                         player.beginFastForwarding()
 
                         expect(player.engine().rate).to(equal(2.0))
@@ -255,13 +255,13 @@ class PlayListPlayerSpec: QuickSpec {
             describe("endFastForwarding()", {
                 context("when playList was set", {
                     it("will make rate 1.0, currentTrackURL() audio1URL()", closure: {
-                        let urls: [NSURL] = [
+                        let urls: [URL] = [
                             FileHelper.audio1URL(),
                             FileHelper.audio2URL(),
                             FileHelper.movie1URL()]
                         let player: PlayListPlayer = PlayListPlayer()
 
-                        player.setPlayList(urls)
+                        player.set(playList: urls)
                         player.endFastForwarding()
 
                         expect(player.engine().rate).to(equal(1.0))
@@ -274,15 +274,15 @@ class PlayListPlayerSpec: QuickSpec {
                     context("playMode is RepeatPlayList", {
                         context("and currentIndex is last index", {
                             it("will play first track from the beginning of it", closure: {
-                                let urls: [NSURL] = [
+                                let urls: [URL] = [
                                     FileHelper.audio1URL(),
                                     FileHelper.audio2URL(),
                                     FileHelper.movie1URL()]
                                 let player: PlayListPlayer = PlayListPlayer()
 
                                 player.playMode = .RepeatPlayList
-                                player.setPlayList(urls)
-                                player.setCurrentIndex(2)
+                                player.set(playList: urls)
+                                player.set(currentIndex: 2)
                                 player.play()
 
                                 player.skipToNextTrack()
@@ -294,14 +294,14 @@ class PlayListPlayerSpec: QuickSpec {
                         })
                         context("and currentIndex is not last index", {
                             it("will play next track", closure: {
-                                let urls: [NSURL] = [
+                                let urls: [URL] = [
                                     FileHelper.audio1URL(),
                                     FileHelper.audio2URL(),
                                     FileHelper.movie1URL()]
                                 let player: PlayListPlayer = PlayListPlayer()
 
                                 player.playMode = .RepeatPlayList
-                                player.setPlayList(urls)
+                                player.set(playList: urls)
                                 player.play()
 
                                 player.skipToNextTrack()
@@ -315,15 +315,15 @@ class PlayListPlayerSpec: QuickSpec {
                     context("playMode is RepeatItem", {
                         context("and currentIndex is last index", {
                             it("will play current track from the beginning of it", closure: {
-                                let urls: [NSURL] = [
+                                let urls: [URL] = [
                                     FileHelper.audio1URL(),
                                     FileHelper.audio2URL(),
                                     FileHelper.movie1URL()]
                                 let player: PlayListPlayer = PlayListPlayer()
 
                                 player.playMode = .RepeatItem
-                                player.setPlayList(urls)
-                                player.setCurrentIndex(2)
+                                player.set(playList: urls)
+                                player.set(currentIndex: 2)
                                 player.play()
 
                                 player.skipToNextTrack()
@@ -335,14 +335,14 @@ class PlayListPlayerSpec: QuickSpec {
                         })
                         context("and currentIndex is not last index", {
                             it("will play current track from the beginning of it", closure: {
-                                let urls: [NSURL] = [
+                                let urls: [URL] = [
                                     FileHelper.audio1URL(),
                                     FileHelper.audio2URL(),
                                     FileHelper.movie1URL()]
                                 let player: PlayListPlayer = PlayListPlayer()
 
                                 player.playMode = .RepeatItem
-                                player.setPlayList(urls)
+                                player.set(playList: urls)
                                 player.play()
 
                                 player.skipToNextTrack()
@@ -356,15 +356,15 @@ class PlayListPlayerSpec: QuickSpec {
                     context("playMode is NoRepeat", {
                         context("and currentIndex is last index", {
                             it("will pause at the beginning of first track", closure: {
-                                let urls: [NSURL] = [
+                                let urls: [URL] = [
                                     FileHelper.audio1URL(),
                                     FileHelper.audio2URL(),
                                     FileHelper.movie1URL()]
                                 let player: PlayListPlayer = PlayListPlayer()
 
                                 player.playMode = .NoRepeat
-                                player.setPlayList(urls)
-                                player.setCurrentIndex(2)
+                                player.set(playList: urls)
+                                player.set(currentIndex: 2)
                                 player.play()
 
                                 player.skipToNextTrack()
@@ -376,14 +376,14 @@ class PlayListPlayerSpec: QuickSpec {
                         })
                         context("and currentIndex is not last index", {
                             it("will play next track", closure: {
-                                let urls: [NSURL] = [
+                                let urls: [URL] = [
                                     FileHelper.audio1URL(),
                                     FileHelper.audio2URL(),
                                     FileHelper.movie1URL()]
                                 let player: PlayListPlayer = PlayListPlayer()
 
                                 player.playMode = .NoRepeat
-                                player.setPlayList(urls)
+                                player.set(playList: urls)
                                 player.play()
                                 
                                 player.skipToNextTrack()
@@ -399,13 +399,13 @@ class PlayListPlayerSpec: QuickSpec {
             describe("beginRewinding()", {
                 context("when playList was set", {
                     it("will make rate -2.0, currentTrackURL() audio1URL()", closure: {
-                        let urls: [NSURL] = [
+                        let urls: [URL] = [
                             FileHelper.audio1URL(),
                             FileHelper.audio2URL(),
                             FileHelper.movie1URL()]
                         let player: PlayListPlayer = PlayListPlayer()
 
-                        player.setPlayList(urls)
+                        player.set(playList: urls)
                         player.beginRewinding()
 
                         expect(player.engine().rate).to(equal(-2.0))
@@ -416,13 +416,13 @@ class PlayListPlayerSpec: QuickSpec {
             describe("endRewinding()", {
                 context("when playList was set", {
                     it("will make rate 1.0, currentTrackURL() audio1URL()", closure: {
-                        let urls: [NSURL] = [
+                        let urls: [URL] = [
                             FileHelper.audio1URL(),
                             FileHelper.audio2URL(),
                             FileHelper.movie1URL()]
                         let player: PlayListPlayer = PlayListPlayer()
 
-                        player.setPlayList(urls)
+                        player.set(playList: urls)
                         player.endRewinding()
 
                         expect(player.engine().rate).to(equal(1.0))
@@ -435,7 +435,7 @@ class PlayListPlayerSpec: QuickSpec {
                     context("playMode is RepeatPlayList", {
                         context("and currentIndex is 0", {
                             it("will play first track from the beginning of it", closure: {
-                                let urls: [NSURL] = [
+                                let urls: [URL] = [
                                     FileHelper.audio1URL(),
                                     FileHelper.audio2URL(),
                                     FileHelper.movie1URL()]
@@ -443,7 +443,7 @@ class PlayListPlayerSpec: QuickSpec {
 
                                 player.playMode = .RepeatPlayList
 
-                                player.setPlayList(urls)
+                                player.set(playList: urls)
                                 player.play()
                                 player.jumpToPreviousTrack()
 
@@ -454,14 +454,14 @@ class PlayListPlayerSpec: QuickSpec {
                         })
                         context("and currentIndex is not 0", {
                             it("will play previous track", closure: {
-                                let urls: [NSURL] = [
+                                let urls: [URL] = [
                                     FileHelper.audio1URL(),
                                     FileHelper.audio2URL(),
                                     FileHelper.movie1URL()]
                                 let player: PlayListPlayer = PlayListPlayer()
 
                                 player.playMode = .RepeatPlayList
-                                player.setPlayList(urls)
+                                player.set(playList: urls)
                                 player.play()
                                 player.skipToNextTrack()
 
@@ -478,7 +478,7 @@ class PlayListPlayerSpec: QuickSpec {
                     context("playMode is RepeatItem", {
                         context("and currentIndex is 0", {
                             it("will play current track from the beginning of it", closure: {
-                                let urls: [NSURL] = [
+                                let urls: [URL] = [
                                     FileHelper.audio1URL(),
                                     FileHelper.audio2URL(),
                                     FileHelper.movie1URL()]
@@ -486,7 +486,7 @@ class PlayListPlayerSpec: QuickSpec {
 
                                 player.playMode = .RepeatItem
 
-                                player.setPlayList(urls)
+                                player.set(playList: urls)
                                 player.play()
                                 player.jumpToPreviousTrack()
 
@@ -497,7 +497,7 @@ class PlayListPlayerSpec: QuickSpec {
                         })
                         context("and currentIndex is not 0", {
                             it("will play current track from the beginning of it", closure: {
-                                let urls: [NSURL] = [
+                                let urls: [URL] = [
                                     FileHelper.audio1URL(),
                                     FileHelper.audio2URL(),
                                     FileHelper.movie1URL()]
@@ -505,8 +505,8 @@ class PlayListPlayerSpec: QuickSpec {
 
                                 player.playMode = .RepeatItem
 
-                                player.setPlayList(urls)
-                                player.setCurrentIndex(1)
+                                player.set(playList: urls)
+                                player.set(currentIndex: 1)
                                 player.play()
 
                                 expect(player.currentIndex).to(equal(1))
@@ -522,7 +522,7 @@ class PlayListPlayerSpec: QuickSpec {
                     context("playMode is NoRepeat", {
                         context("and currentIndex is 0", {
                             it("will play first track from the beginning of it", closure: {
-                                let urls: [NSURL] = [
+                                let urls: [URL] = [
                                     FileHelper.audio1URL(),
                                     FileHelper.audio2URL(),
                                     FileHelper.movie1URL()]
@@ -530,7 +530,7 @@ class PlayListPlayerSpec: QuickSpec {
 
                                 player.playMode = .NoRepeat
 
-                                player.setPlayList(urls)
+                                player.set(playList: urls)
                                 player.play()
                                 player.jumpToPreviousTrack()
 
@@ -541,14 +541,14 @@ class PlayListPlayerSpec: QuickSpec {
                         })
                         context("and currentIndex is not 0", {
                             it("will play previous track", closure: {
-                                let urls: [NSURL] = [
+                                let urls: [URL] = [
                                     FileHelper.audio1URL(),
                                     FileHelper.audio2URL(),
                                     FileHelper.movie1URL()]
                                 let player: PlayListPlayer = PlayListPlayer()
 
                                 player.playMode = .NoRepeat
-                                player.setPlayList(urls)
+                                player.set(playList: urls)
                                 player.play()
                                 player.skipToNextTrack()
 
@@ -567,14 +567,14 @@ class PlayListPlayerSpec: QuickSpec {
             describe("seekToBeginning()", {
                 context("when playList was set", {
                     it("will make engine().currentItem?.currentTime() kCMTimeZero", closure: {
-                        let urls: [NSURL] = [
+                        let urls: [URL] = [
                             FileHelper.audio1URL(),
                             FileHelper.audio2URL(),
                             FileHelper.movie1URL()]
                         let player: PlayListPlayer = PlayListPlayer()
 
-                        player.setPlayList(urls)
-                        player.seekTo(0.5)
+                        player.set(playList: urls)
+                        player.seek(to: 0.5)
 
                         expect(player.engine().currentItem?.currentTime()).notTo(equal(kCMTimeZero))
 
@@ -587,15 +587,15 @@ class PlayListPlayerSpec: QuickSpec {
             describe("seekTo(position: Float)", {
                 context("when playList was set", {
                     it("will update engine().currentItem?.currentTime() expected value", closure: {
-                        let urls: [NSURL] = [
+                        let urls: [URL] = [
                             FileHelper.audio1URL(),
                             FileHelper.audio2URL(),
                             FileHelper.movie1URL()]
                         let player: PlayListPlayer = PlayListPlayer()
                         let position: Float        = 0.5
 
-                        player.setPlayList(urls)
-                        player.seekTo(position)
+                        player.set(playList: urls)
+                        player.seek(to: position)
 
                         let currentTime: Float   = Float(player.engine().currentTime().value)
                         let duration: Float      = Float(player.engine().currentItem?.asset.duration.value ?? 0)

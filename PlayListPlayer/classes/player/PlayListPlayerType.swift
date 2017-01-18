@@ -16,15 +16,15 @@ public protocol PlayListPlayerType {
     var didFinishPlayingPlayList:(() -> Void)? { get set }
 
     var playMode: PlayerPlayMode { get set }
-    var playList: [NSURL] { get }
+    var playList: [URL] { get }
     var currentIndex: Int { get }
 
-    func setPlayList(urls: [NSURL])
-    func setCurrentIndex(index: Int) -> Bool
+    func set(playList: [URL])
+    func set(currentIndex: Int) -> Bool
 
     func engine() -> AVPlayer
     func hasPlayList() -> Bool
-    func currentTrackURL() -> NSURL?
+    func currentTrackURL() -> URL?
     func isPlaying() -> Bool
 
     func play()
@@ -38,7 +38,7 @@ public protocol PlayListPlayerType {
 
     func seekToBeginning()
     //Position take values between 0.0(the beginning of a track) and 1.0(the end of a track).
-    func seekTo(position: Float)
+    func seek(to position: Float)
 }
 
 public enum PlayerPlayMode: Int {

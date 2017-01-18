@@ -20,7 +20,7 @@ public class PlayListPlayer: PlayListPlayerType {
     public var didFinishPlayingPlayList:(() -> Void)?
 
     public var playMode: PlayerPlayMode = .RepeatPlayList
-    public var playList: [NSURL] {
+    public var playList: [URL] {
         return urls
     }
     public var currentIndex: Int {
@@ -31,24 +31,25 @@ public class PlayListPlayer: PlayListPlayerType {
 
     private let player: AVPlayer = AVPlayer()
 
-    private var urls: [NSURL] = []
-    private var index: Int    = 0
+    private var urls: [URL] = []
+    private var index: Int  = 0
 
     // MARK: - update PlayListPlayer properties
 
-    public func setPlayList(urls: [NSURL]) {
-        self.urls  = urls
+    public func set(playList: [URL]) {
+        self.urls  = playList
         self.index = 0
 
         setupPlayerItem()
     }
 
-    public func setCurrentIndex(index: Int) -> Bool {
-        if !isValidIndex(index) {
+    @discardableResult
+    public func set(currentIndex: Int) -> Bool {
+        if !isValid(index: currentIndex) {
             return false
         }
 
-        self.index = index
+        self.index = currentIndex
         setupPlayerItem()
         return true
     }
@@ -63,12 +64,14 @@ public class PlayListPlayer: PlayListPlayerType {
         return !urls.isEmpty
     }
 
-    public func currentTrackURL() -> NSURL? {
-        guard let currentItem: AVPlayerItem = player.currentItem, asset: AVURLAsset = currentItem.asset as? AVURLAsset else {
-            return nil
+    public func currentTrackURL() -> URL? {
+        guard
+            let currentItem: AVPlayerItem = player.currentItem,
+            let asset: AVURLAsset = currentItem.asset as? AVURLAsset else {
+                return nil
         }
 
-        return asset.URL
+        return asset.url
     }
 
     public func isPlaying() -> Bool {
@@ -103,12 +106,12 @@ public class PlayListPlayer: PlayListPlayerType {
 
         switch playMode {
         case .RepeatPlayList:
-            setCurrentIndex(nextIndex)
+            set(currentIndex: nextIndex)
             play()
         case .RepeatItem:
             seekToBeginning()
         case .NoRepeat:
-            setCurrentIndex(nextIndex)
+            set(currentIndex: nextIndex)
             if isLastTrack {
                 pause()
             }
@@ -132,7 +135,7 @@ public class PlayListPlayer: PlayListPlayerType {
             if isFirstTrack {
                 seekToBeginning()
             } else {
-                setCurrentIndex(previousIndex)
+                set(currentIndex: previousIndex)
             }
         case .RepeatItem:
             seekToBeginning()
@@ -140,11 +143,11 @@ public class PlayListPlayer: PlayListPlayerType {
     }
 
     public func seekToBeginning() {
-        seekTo(0)
+        seek(to: 0)
         didStartPlayingTrack?()
     }
 
-    public func seekTo(position: Float) {
+    public func seek(to position: Float) {
         guard let currentItem: AVPlayerItem = player.currentItem else {
             return
         }
@@ -153,33 +156,31 @@ public class PlayListPlayer: PlayListPlayerType {
         let value: Float     = Float(duration.value) * position
         let seekTime: CMTime = CMTimeMake(CMTimeValue(value), duration.timescale)
 
-        currentItem.seekToTime(seekTime)
+        currentItem.seek(to: seekTime)
     }
 
     // MARK: - private
 
     private func setupPlayerItem() {
-        if !isValidIndex(currentIndex) {
+        if !isValid(index: currentIndex) {
             return
         }
 
-        guard let url: NSURL = urls[currentIndex] else {
-            return
-        }
+        let url: URL = urls[currentIndex]
 
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
 
-        let playerItem: AVPlayerItem = AVPlayerItem(URL: url)
-        player.replaceCurrentItemWithPlayerItem(playerItem)
+        let playerItem: AVPlayerItem = AVPlayerItem(url: url)
+        player.replaceCurrentItem(with: playerItem)
         didStartPlayingTrack?()
 
-        NSNotificationCenter.defaultCenter().addObserver(self,
-                                                         selector: #selector(playerDidFinishTrackPlaying),
-                                                         name: AVPlayerItemDidPlayToEndTimeNotification,
-                                                         object: player.currentItem)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(playerDidFinishTrackPlaying),
+                                               name: Notification.Name.AVPlayerItemDidPlayToEndTime,
+                                               object: player.currentItem)
     }
 
-    private func isValidIndex(index: Int) -> Bool {
+    private func isValid(index: Int) -> Bool {
         return hasPlayList() && 0 <= index && index <= lastTrackIndex()
     }
 

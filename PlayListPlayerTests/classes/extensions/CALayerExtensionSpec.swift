@@ -20,7 +20,7 @@ class CALayerExtensionSpec: QuickSpec {
                             let layer: AVPlayerLayer   = AVPlayerLayer()
                             let player: PlayListPlayer = PlayListPlayer()
 
-                            layer.setPlayer(player)
+                            layer.set(player: player)
 
                             expect(layer.player).notTo(beNil())
                             expect(layer.player).to(equal(player.engine()))

@@ -13,7 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var movieRenderingView: MovieRenderingView!
 
-    private let player: PlayListPlayer = PlayListPlayer.sharedInstance
+    fileprivate let player: PlayListPlayer = PlayListPlayer.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         setupPlayer()
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         player.play()
@@ -29,13 +29,13 @@ class ViewController: UIViewController {
 
     // MARK: - private
 
-    private func setupPlayer() {
-        let url1: NSURL = NSBundle.mainBundle().URLForResource("sample_audio1", withExtension: "mp3")!
-        let url2: NSURL = NSBundle.mainBundle().URLForResource("sample_audio2", withExtension: "mp3")!
-        let url3: NSURL = NSBundle.mainBundle().URLForResource("sample_movie", withExtension: "mp4")!
+    fileprivate func setupPlayer() {
+        let url1: URL = Bundle.main.url(forResource: "sample_audio1", withExtension: "mp3")!
+        let url2: URL = Bundle.main.url(forResource: "sample_audio2", withExtension: "mp3")!
+        let url3: URL = Bundle.main.url(forResource: "sample_movie", withExtension: "mp4")!
 
-        player.setPlayList([url1, url2, url3])
-        movieRenderingView.setPlayer(player)
+        player.set(playList: [url1, url2, url3])
+        movieRenderingView.set(player: player)
     }
 
     // MARK: - IBAction
