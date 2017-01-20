@@ -8,13 +8,13 @@
 
 Pod::Spec.new do |s|
   s.name          = "PlayListPlayer"
-  s.version       = "0.1.0"
-  s.summary       = "Audio/Movie PlayList Player module written in Swift"
-  s.description   = "PlayListPlayer is AVPlayer wrapper to make easy playing audio/video file from NSURL"
+  s.version       = "1.0.0"
+  s.summary       = "Audio/Movie PlayList Player module written in Swift3"
+  s.description   = "PlayListPlayer is AVPlayer wrapper to make easy playing audio/video file from URL"
   s.homepage      = "https://github.com/nerd0geek1/PlayListPlayer"
   s.license       = { :type => "MIT", :file => "LICENSE" }
   s.author        = { "Kohei Tabata" => "nerd0geek1@gmail.com" }
   s.platform      = :ios, "9.0"
-  s.source        = { :git => "https://github.com/nerd0geek1/PlayListPlayer.git", :tag => "v0.1.0" }
+  s.source        = { :git => "https://github.com/nerd0geek1/PlayListPlayer.git", :tag => "v1.0.0" }
   s.source_files  = "Classes", "PlayListPlayer/**/*.{swift}"
 end
