@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		73E59F701E47EBE6006BE86C /* SwiftLint */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 73E59F731E47EBE6006BE86C /* Build configuration list for PBXAggregateTarget "SwiftLint" */;
+			buildPhases = (
+				73E59F741E47EC0D006BE86C /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = SwiftLint;
+			productName = SwiftLint;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		273326891D5033CE001462F8 /* PlayListPlayerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273326881D5033CE001462F8 /* PlayListPlayerType.swift */; };
 		2733268C1D503542001462F8 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2733268A1D503542001462F8 /* Nimble.framework */; };
@@ -242,7 +256,6 @@
 				73983FED1D3D0D620001EA78 /* Frameworks */,
 				73983FEE1D3D0D620001EA78 /* Headers */,
 				73983FEF1D3D0D620001EA78 /* Resources */,
-				7398400E1D3D168B0001EA78 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -290,6 +303,11 @@
 						CreatedOnToolsVersion = 7.3.1;
 						LastSwiftMigration = 0820;
 					};
+					73E59F701E47EBE6006BE86C = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 5GKRYZ5VBH;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 73983FEB1D3D0D620001EA78 /* Build configuration list for PBXProject "PlayListPlayer" */;
@@ -306,6 +324,7 @@
 			targets = (
 				73983FF01D3D0D620001EA78 /* PlayListPlayer */,
 				73983FFA1D3D0D620001EA78 /* PlayListPlayerTests */,
+				73E59F701E47EBE6006BE86C /* SwiftLint */,
 			);
 		};
 /* End PBXProject section */
@@ -331,19 +350,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7398400E1D3D168B0001EA78 /* SwiftLint */ = {
+		73E59F741E47EC0D006BE86C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = SwiftLint;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = ./swiftlint;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -553,6 +571,22 @@
 			};
 			name = Release;
 		};
+		73E59F711E47EBE6006BE86C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 5GKRYZ5VBH;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		73E59F721E47EBE6006BE86C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 5GKRYZ5VBH;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -582,6 +616,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		73E59F731E47EBE6006BE86C /* Build configuration list for PBXAggregateTarget "SwiftLint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73E59F711E47EBE6006BE86C /* Debug */,
+				73E59F721E47EBE6006BE86C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
