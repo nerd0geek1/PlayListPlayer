@@ -1,11 +1,3 @@
-//
-//  PlayListPlayerType.swift
-//  PlayListPlayer
-//
-//  Created by Kohei Tabata on 7/18/16.
-//  Copyright © 2016 nerd0geek1. All rights reserved.
-//
-
 import Foundation
 import AVFoundation
 
