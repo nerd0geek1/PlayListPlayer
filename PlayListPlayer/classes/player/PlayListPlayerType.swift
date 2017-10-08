@@ -34,7 +34,7 @@ public protocol PlayListPlayerType {
 }
 
 public enum PlayerPlayMode: Int {
-    case RepeatPlayList
-    case RepeatItem
-    case NoRepeat
+    case repeatPlayList
+    case repeatItem
+    case noRepeat
 }

@@ -11,7 +11,7 @@ public class PlayListPlayer: PlayListPlayerType {
     public var didFinishPlayingTrack:(() -> Void)?
     public var didFinishPlayingPlayList:(() -> Void)?
 
-    public var playMode: PlayerPlayMode = .RepeatPlayList
+    public var playMode: PlayerPlayMode = .repeatPlayList
     public var playList: [URL] {
         return urls
     }
@@ -37,7 +37,7 @@ public class PlayListPlayer: PlayListPlayerType {
 
     @discardableResult
     public func set(currentIndex: Int) -> Bool {
-        if !isValid(index: currentIndex) {
+        guard isValid(index: currentIndex) else {
             return false
         }
 
@@ -97,12 +97,12 @@ public class PlayListPlayer: PlayListPlayerType {
         let nextIndex: Int    = isLastTrack ? 0 : currentIndex + 1
 
         switch playMode {
-        case .RepeatPlayList:
+        case .repeatPlayList:
             set(currentIndex: nextIndex)
             play()
-        case .RepeatItem:
+        case .repeatItem:
             seekToBeginning()
-        case .NoRepeat:
+        case .noRepeat:
             set(currentIndex: nextIndex)
             if isLastTrack {
                 pause()
@@ -123,13 +123,13 @@ public class PlayListPlayer: PlayListPlayerType {
         let previousIndex: Int = isFirstTrack ? 0 : currentIndex - 1
 
         switch playMode {
-        case .RepeatPlayList, .NoRepeat:
+        case .repeatPlayList, .noRepeat:
             if isFirstTrack {
                 seekToBeginning()
             } else {
                 set(currentIndex: previousIndex)
             }
-        case .RepeatItem:
+        case .repeatItem:
             seekToBeginning()
         }
     }
@@ -177,7 +177,7 @@ public class PlayListPlayer: PlayListPlayerType {
     }
 
     private func lastTrackIndex() -> Int {
-        return urls.count == 0 ? 0 : urls.count - 1
+        return hasPlayList() ? urls.count - 1 : 0
     }
 
     private func resetPlayerRate() {
@@ -186,8 +186,7 @@ public class PlayListPlayer: PlayListPlayerType {
 
     // MARK: - Notification
 
-    @objc
-    private func playerDidFinishTrackPlaying(notification: NSNotification) {
+    @objc private func playerDidFinishTrackPlaying(notification: NSNotification) {
         didFinishPlayingTrack?()
 
         if currentIndex == lastTrackIndex() {
