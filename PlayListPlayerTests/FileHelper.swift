@@ -1,11 +1,3 @@
-//
-//  FileHelper.swift
-//  PlayListPlayer
-//
-//  Created by Kohei Tabata on 2016/08/02.
-//  Copyright © 2016年 nerd0geek1. All rights reserved.
-//
-
 import Foundation
 
 class FileHelper {

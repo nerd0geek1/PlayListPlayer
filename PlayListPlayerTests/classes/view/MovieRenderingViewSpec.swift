@@ -1,11 +1,3 @@
-//
-//  MovieRenderingViewSpec.swift
-//  PlayListPlayer
-//
-//  Created by Kohei Tabata on 8/2/16.
-//  Copyright © 2016 nerd0geek1. All rights reserved.
-//
-
 import AVFoundation
 
 import Quick

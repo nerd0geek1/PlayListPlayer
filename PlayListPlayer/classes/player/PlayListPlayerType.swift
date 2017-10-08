@@ -1,11 +1,3 @@
-//
-//  PlayListPlayerType.swift
-//  PlayListPlayer
-//
-//  Created by Kohei Tabata on 7/18/16.
-//  Copyright © 2016 nerd0geek1. All rights reserved.
-//
-
 import Foundation
 import AVFoundation
 
@@ -42,7 +34,7 @@ public protocol PlayListPlayerType {
 }
 
 public enum PlayerPlayMode: Int {
-    case RepeatPlayList
-    case RepeatItem
-    case NoRepeat
+    case repeatPlayList
+    case repeatItem
+    case noRepeat
 }
