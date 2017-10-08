@@ -1,12 +1,12 @@
 language:
   objective-c
 osx_image:
-  xcode8.2
+  xcode9
 xcode_project:
   PlayListPlayer.xcodeproj
 xcode_scheme:
   PlayListPlayer
 script:
   - carthage bootstrap --platform iOS --no-use-binaries
-  - xcodebuild -project PlayListPlayer.xcodeproj -scheme PlayListPlayer build-for-testing -sdk iphonesimulator | xcpretty
-  - xctool -project PlayListPlayer.xcodeproj -scheme PlayListPlayer run-tests -sdk iphonesimulator CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+  - bundle install --path vendor/bundle
+  - bundle exec fastlane scan --scheme 'PlayListPlayer'
