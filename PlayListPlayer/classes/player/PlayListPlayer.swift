@@ -5,7 +5,7 @@ public class PlayListPlayer: PlayListPlayerType {
 
     // MARK: - public properties
 
-    public static let sharedInstance: PlayListPlayer = PlayListPlayer()
+    public static let shared: PlayListPlayer = PlayListPlayer()
 
     public var didStartPlayingTrack:(() -> Void)?
     public var didFinishPlayingTrack:(() -> Void)?
