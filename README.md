@@ -11,7 +11,7 @@ PlayListPlayer is `AVPlayer` wrapper module to simplify playing audio/movie file
 let url1: URL = URL(string: "...")!
 let url2: URL = URL(string: "...")!
 let url3: URL = URL(string: "...")!
-PlayListPlayer.sharedInstance.set(playList: [url1, url2, url3])
+PlayListPlayer.shared.set(playList: [url1, url2, url3])
 
 //setup MovieRenderingView(If you want to play video file)
 let movieRenderingView: MovieRenderingView = MovieRenderingView()
@@ -19,7 +19,7 @@ view.addSubView(movieRenderingView)
 movieRenderingView.set(player: player)
 
 //start playing
-PlayListPlayer.sharedInstance.play()
+PlayListPlayer.shared.play()
 ```
 
 `PlayListPlayerSample` is sample project which includes above files, so please refer it if needed.  
@@ -27,10 +27,10 @@ You can confirm screen like below with sample project.
 <img src="https://raw.githubusercontent.com/nerd0geek1/PlayListPlayer/master/images/sample_project.png" width="320px">
 
 ## Requirements
-- iOS 9.0+
-- Xcode 7.3 or above
+- iOS 10.0+
+- Xcode 9.0 or above
 
-PlayListPlayer is now supporting Swift2.3/Swift3.
+PlayListPlayer is now supporting Swift4.
 
 ## Installation
 
@@ -38,7 +38,7 @@ PlayListPlayer is now supporting Swift2.3/Swift3.
 To integrate PlayListPlayer into your Xcode project using CocoaPods, specify it in your Podfile:
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '9.0'
+platform :ios, '10.0'
 
 project 'YOUR_PROJECT_NAME'
 

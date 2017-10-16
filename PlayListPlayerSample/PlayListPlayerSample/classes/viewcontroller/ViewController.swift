@@ -13,7 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var movieRenderingView: MovieRenderingView!
 
-    fileprivate let player: PlayListPlayer = PlayListPlayer.sharedInstance
+    fileprivate let player: PlayListPlayer = PlayListPlayer.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()

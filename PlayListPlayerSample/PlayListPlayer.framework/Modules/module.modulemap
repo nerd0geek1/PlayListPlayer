@@ -1,3 +1,4 @@
 framework module PlayListPlayer {
     header "PlayListPlayer-Swift.h"
+    requires objc
 }
